@@ -9,6 +9,14 @@
   home.username = "jdam";
   home.homeDirectory = "/home/jdam";
 
+  # import all other modules
+  imports = [
+    # all package imports
+    ./package.nix 
+  ];
+
+
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
