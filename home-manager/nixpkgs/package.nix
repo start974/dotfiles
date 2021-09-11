@@ -10,7 +10,6 @@
         # terminal tools
 
         # editor / ide
-        vim
 
         # common line utility
         zip

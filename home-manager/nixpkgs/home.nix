@@ -14,6 +14,7 @@
     # all package imports
     ./git.nix
     ./package.nix
+    ./vim.nix
     ./xresources.nix
   ];
 

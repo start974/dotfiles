@@ -1,2 +1,3 @@
-home-manager/pulse
-home-manager/environment.d
+home-manager/pulse/
+home-manager/environment.d/
+home-manager/git/
