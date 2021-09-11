@@ -12,8 +12,9 @@
   # import all other modules
   imports = [
     # all package imports
-    ./package.nix 
     ./git.nix
+    ./package.nix
+    ./xresources.nix
   ];
 
 
