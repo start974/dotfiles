@@ -13,6 +13,7 @@
   imports = [
     # all package imports
     ./package.nix 
+    ./git.nix
   ];
 
 
