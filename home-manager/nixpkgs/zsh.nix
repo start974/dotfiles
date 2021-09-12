@@ -1,5 +1,9 @@
 { pkgs, lib, ... } :
 {
+  #fonts.fonts = with pkgs; [
+  #  MesloLGS
+  #];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;

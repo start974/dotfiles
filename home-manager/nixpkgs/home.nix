@@ -6,8 +6,16 @@
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "jdam";
-  home.homeDirectory = "/home/jdam";
+  home = {
+    username = "jdam";
+    homeDirectory = "/home/jdam";
+
+    keyboard.layout = "fr(mac)";
+
+    sessionVariables = {
+      EDITOR = "vim";
+    };
+  };
 
   # import all other modules
   imports = [
@@ -17,6 +25,10 @@
     ./xresources.nix
     ./zsh.nix
   ];
+
+  # enable manual in html
+  manual.html.enable = true;
+
 
 
 
@@ -28,5 +40,6 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "21.05";
+  home.stateVersion = "21.11";
+  home.enableNixpkgsReleaseCheck = false;
 }
