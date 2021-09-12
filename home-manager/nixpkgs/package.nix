@@ -30,6 +30,7 @@
         vlc
 
         # language
+        perl
         python3
         coq
     ];
