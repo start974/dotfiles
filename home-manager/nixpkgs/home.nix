@@ -11,11 +11,11 @@
 
   # import all other modules
   imports = [
-    # all package imports
     ./git.nix
     ./package.nix
     ./vim.nix
     ./xresources.nix
+    ./zsh.nix
   ];
 
 
