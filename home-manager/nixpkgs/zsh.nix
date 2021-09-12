@@ -3,14 +3,14 @@
   #fonts.fonts = with pkgs; [
   #  MesloLGS
   #];
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    #enableSyntaxHighlighting = true;
+    enableSyntaxHighlighting = true;
+    enableAutosuggestions = true;
     autocd = true;
     #defaultKeymap = "vicmd";
-   # localVariables = {
+    localVariables = {
    # # Override highlighter colors
    #   "ZSH_HIGHLIGHT_STYLES[unknown-token]" = "fg=red,bold";
    #   "ZSH_HIGHLIGHT_STYLES[path]" = "fg=blue,bold";
@@ -25,10 +25,10 @@
    #   "ZSH_HIGHLIGHT_STYLES[comment]" = "fg=239,bold";
    #   "ZSH_HIGHLIGHT_STYLES[cursor]" = "bg=blue";
    #   "ZSH_HIGHLIGHT_STYLES[line]" = "bold";
-   # };
+   };
     oh-my-zsh = {
       enable = true;
-      theme = "powerlevel10k/powerlevel10k";
+      theme = "fino"; #"bira";
       plugins = [
         "colored-man-pages"
         "colorize"
@@ -43,21 +43,6 @@
         "python"
       ];
     };
-    plugins = [
-      {
-        name = "zsh-autosuggestions";
-        src = pkgs.zsh-autosuggestions;
-      }
-      {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.zsh-syntax-highlighting;
-      }
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-    ];
     shellAliases = {
       df = "df -h";
       python = "python3.9";

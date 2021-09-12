@@ -1,59 +1,63 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
-    xresources.properties = {
+  xresources.properties = {
     # Ressources
-      "*locale" = true;
-      "*metaSendsEscape" = true;
+    "*locale" = true;
+    "*metaSendsEscape" = true;
 
     # colors
-      "*.foreground"  = "#b0a5e3";
-      "*.background"  = "#292929";
-      "*.cursorColor" = "#7a5Eae";
+    "*.foreground"  = "#b0a5e3";
+    "*.background"  = "#292929";
+    "*.cursorColor" = "#7a5Eae";
 
-      # Black / grey
-      "*.color0"      = "#000000";
-      "*.color8"      = "#3f3f3f";
+    # Black / grey
+    "*.color0"      = "#000000";
+    "*.color8"      = "#3f3f3f";
 
-      # Red
-      "*.color1"      = "#f15252";
-      "*.color9"      = "#F50606";
+    # Red
+    "*.color1"      = "#f15252";
+    "*.color9"      = "#F50606";
 
-      # Green
-      "*.color2"      = "#5ddc7b";
-      "*.color10"     = "#09B540";
+    # Green
+    "*.color2"      = "#5ddc7b";
+    "*.color10"     = "#09B540";
 
-      # Yellow
-      "*.color3"      = "#e6e871";
-      "*.color11"     = "#f1ef06";
+    # Yellow
+    "*.color3"      = "#e6e871";
+    "*.color11"     = "#f1ef06";
 
-      # Blue
-      "*.color4"      = "#157ef1";
-      "*.color12"     = "#0a54a4";
+    # Blue
+    "*.color4"      = "#157ef1";
+    "*.color12"     = "#0a54a4";
 
-      # Magenta
-      "*.color5"      = "#9c37da";
-      "*.color13"     = "#640c9b";
+    # Magenta
+    "*.color5"      = "#9c37da";
+    "*.color13"     = "#640c9b";
 
-      # Cyan
-      "*.color6"      = "#0fceba";
-      "*.color14"     = "#068973";
+    # Cyan
+    "*.color6"      = "#0fceba";
+    "*.color14"     = "#068973";
 
-      # white
-      "*.color7"      = "#e8e8e8";
-      "*.color15"     = "#ffffff";
+    # white
+    "*.color7"      = "#e8e8e8";
+    "*.color15"     = "#ffffff";
     };
 
     programs.urxvt = {
       enable = true;
-      fonts = [ "xft:MesloLGS NF:size=15" ];
+      fonts = [ "xft:dejavu-sans-mono:size=7" ];
       transparent = true;
-      shading = 50;
+      shading = 80;
       keybindings = {
         "Shift-Control-C" = "perl:clipboard:copy";
         "Shift-Control-V" = "perl:clipboard:paste";
       };
       extraConfig = {
+        letterSpace = -3;
+
+        # perl script
         "perl-ext-common" = "default,matcher,clipboard,resize-font";
+        "perl-lib" = "${config.home.profileDirectory}/lib/urxvt/perl";
 
         # using perl-ext-common: "default, matcher"
         "url-launcher" = "firefox";
@@ -62,4 +66,4 @@
 
       };
     };
-}
+  }

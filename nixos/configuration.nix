@@ -80,7 +80,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jdam = {
      isNormalUser = true;
-     description = "Jeremy principal user";
+     description = "Jeremy";
      extraGroups = [ "wheel" "networkmannager" ]; # Enable ‘sudo’ for the user.
    };
 

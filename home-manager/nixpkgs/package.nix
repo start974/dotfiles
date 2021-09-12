@@ -7,8 +7,6 @@
         # app
         thunderbird
 
-        # terminal tools
-
         # editor / ide
 
         # common line utility
@@ -17,6 +15,7 @@
         pandoc
         tree
         htop
+        tig
         ncdu
 
         # image
