@@ -1,10 +1,6 @@
 { pkgs, lib, ... } :
 {
-  #fonts.fonts = with pkgs; [
-  #  MesloLGS
-  #];
   programs.zsh = {
-    enable = true;
     enableCompletion = true;
     enableSyntaxHighlighting = true;
     enableAutosuggestions = true;
@@ -37,7 +33,6 @@
         "docker"
         "extract"
         "git"
-        #"history-search-multi-word"
         "pip"
         "pipenv"
         "python"
@@ -50,9 +45,13 @@
     };
   };
 
-  programs.broot = {
-    enableZshIntegration = true;
-    #modal = true;
+  programs = {
+    broot.enableZshIntegration = true;
+    mcfly = {
+      enableZshIntegration = true;
+      enableLightTheme = true;
+      enableFuzzySearch = true;
+    };
+    opam.enableZshIntegration = true;
   };
-  
 }

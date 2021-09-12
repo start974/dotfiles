@@ -44,16 +44,20 @@
     };
 
     programs.urxvt = {
-      enable = true;
-      fonts = [ "xft:dejavu-sans-mono:size=7" ];
+      fonts = [ "xft:Droid Sans Mono Nerd Font:size=10" ];
       transparent = true;
       shading = 80;
+      scroll.bar = {
+        enable = true;
+        position = "right";
+        style = "plain";
+      };
       keybindings = {
         "Shift-Control-C" = "perl:clipboard:copy";
         "Shift-Control-V" = "perl:clipboard:paste";
       };
       extraConfig = {
-        letterSpace = -3;
+        letterSpace = 0;
 
         # perl script
         "perl-ext-common" = "default,matcher,clipboard,resize-font";
