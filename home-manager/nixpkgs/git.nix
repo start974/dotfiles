@@ -14,8 +14,12 @@
 
             # Removes a file from the index
             unstage = "reset HEAD --";
-        };
-        extraConfig = {
+          };
+          ignores = [
+            # Vim
+            "*.swp"
+          ];
+          extraConfig = {
             core.editor = "vim";
             push.default = "current";
             pull.rebase = true;
