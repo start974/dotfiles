@@ -6,9 +6,9 @@
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home = {
+  home = rec {
     username = "jdam";
-    homeDirectory = "/home/jdam";
+    homeDirectory = "/home/${username}";
 
     keyboard.layout = "fr(mac)";
 

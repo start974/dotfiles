@@ -6,7 +6,7 @@
     "*metaSendsEscape" = true;
 
     # colors
-    "*.foreground"  = "#b0a5e3";
+    "*.foreground"  = "#ebdef0";
     "*.background"  = "#292929";
     "*.cursorColor" = "#7a5Eae";
 
@@ -46,7 +46,7 @@
     programs.urxvt = {
       fonts = [ "xft:Droid Sans Mono Nerd Font:size=10" ];
       transparent = true;
-      shading = 80;
+      shading = 15;
       scroll.bar = {
         enable = true;
         position = "right";

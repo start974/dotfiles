@@ -21,7 +21,6 @@
       "jobs"
       "time"
       "exit"
-      "newline"
     ];
     settings = {
       shell = "zsh";
