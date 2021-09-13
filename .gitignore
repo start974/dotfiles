@@ -1,3 +1,12 @@
 home-manager/pulse/
 home-manager/environment.d/
 home-manager/git/
+home-manager/TabNine/
+home-manager/broot/
+home-manager/discord/
+home-manager/fontconfig/
+home-manager/libreoffice/
+home-manager/matplotlib/
+home-manager/tmux/
+home-manager/topgrade.toml
+

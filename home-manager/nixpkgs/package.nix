@@ -3,38 +3,43 @@
 { pkgs, ... }:
 
 {
-    fonts.fontconfig.enable = true;
-    home.packages = with pkgs; [
-        # app
-        thunderbird
+  fonts.fontconfig.enable = true;
+  nixpkgs.config.allowUnfree = true;
+  home.packages = with pkgs; [
+    # app
+    thunderbird
 
-        # font
-        (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
-        
-        # editor / ide
+    # font
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
 
-        # common line utility
-        zip
-        unzip
-        pandoc
-        tig
-        ncdu
+    # unfree
+    discord
 
-        # image
-        scrot
+    # editor / ide
 
-        # document
-        evince
-        libreoffice
+    # common line utility
+    zip
+    unzip
+    pandoc
+    tig
+    ncdu
+    taskwarrior-tui
 
-        # video
-        vlc
+    # image
+    scrot
 
-        # language
-        perl
-        python3
-        coq
-        #java (see below)
+    # document
+    evince
+    libreoffice
+
+    # video
+    vlc
+
+    # language
+    perl
+    python3
+    coq
+    # java (see below)
       ];
 
 # programs
@@ -78,6 +83,21 @@
 
   # opam ocaml package manager
   opam.enable = true;
+
+  # powerline-go 
+  powerline-go.enable = true;
+
+  # ssh client
+  ssh.enable = true;
+
+  # task Warrior (todo list)
+  taskwarrior.enable = true;
+
+  # topgrade (upgrader)
+  topgrade.enable = true;
+
+  # tmux
+  tmux.enable = true;
 
   # urxvt-unicode terminal emulator.
   # (see config in "xresources.nix")

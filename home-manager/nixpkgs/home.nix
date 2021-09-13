@@ -21,6 +21,7 @@
   imports = [
     ./git.nix
     ./package.nix
+    ./powerline.nix
     ./vim.nix
     ./xresources.nix
     ./zsh.nix
