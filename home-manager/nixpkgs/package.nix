@@ -14,6 +14,7 @@
 
     # unfree
     discord
+    betterdiscordctl
 
     # editor / ide
 
@@ -35,10 +36,11 @@
     # video
     vlc
 
-    # language
+    # language & tool
     perl
     python3
     coq
+    gnumake
     # java (see below)
       ];
 
@@ -93,6 +95,9 @@
   # task Warrior (todo list)
   taskwarrior.enable = true;
 
+  #texLive
+  texlive.enable = true;
+
   # topgrade (upgrader)
   topgrade.enable = true;
 
@@ -108,5 +113,6 @@
 
   # zsh shell (see config in zsh.nix)
   zsh.enable = true;
-  };
+};
+
 }

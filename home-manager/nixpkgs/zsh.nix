@@ -40,18 +40,22 @@
     };
     shellAliases = {
       df = "df -h";
-      python = "python3.9";
-      pip = "python -m pip";
+      config = "vim ~/dotfile/home-manager/nixpkgs/";
+      frmac = "setxkbmap fr -variant mac";
+      #python = "python3";
+      #pip = "python -m pip";
     };
   };
 
   programs = {
     broot.enableZshIntegration = true;
+
     mcfly = {
       enableZshIntegration = true;
       enableLightTheme = true;
       enableFuzzySearch = true;
     };
+
     opam.enableZshIntegration = true;
   };
 }
