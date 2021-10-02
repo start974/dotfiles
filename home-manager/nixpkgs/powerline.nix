@@ -4,7 +4,7 @@
     newline = true;
 
     pathAliases = {
-      "\\~/dotfile/home-manager" = "cfg/home-manager";
+      "\\~/dotfiles/home-manager" = "cfg/hm";
     };
 
     # (valid choices: aws, bzr, cwd, docker, docker-context, dotenv, duration, exit, fossil, gcp, git, gitlite, goenv, hg, host, jobs, kube, load, newline, nix-shell, node, perlbrew, perms, plenv, rbenv, root, shell-var, shenv, ssh, svn, termtitle, terraform-workspace, time, user, venv, vgo, wsl)

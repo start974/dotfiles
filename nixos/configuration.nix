@@ -49,11 +49,17 @@
     services.xserver = {
       enable = true;
       desktopManager.xterm.enable = false;
-      displayManager.defaultSession = "none+i3";
+      displayManager = {
+        defaultSession = "none+i3";
+        autoLogin = {
+          enable = true;
+          user = "jdam";
+        };
+      };
 
       # layout
-      layout = "fr";
-      xkbVariant = "mac";
+      layout = "fr(mac)";
+      # xkbVariant = "mac";
 
       # Enable the i3 Desktop Environment.
       windowManager.i3 = {
@@ -83,6 +89,9 @@
      description = "Jeremy";
      extraGroups = [ "wheel" "networkmannager" ]; # Enable ‘sudo’ for the user.
    };
+   # zsh default shell
+   programs.zsh.enable = true;
+   users.defaultUserShell = pkgs.zsh;
 
 
   # List packages installed in system profile. To search, run:

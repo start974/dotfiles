@@ -6,6 +6,9 @@
   fonts.fontconfig.enable = true;
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    # boot
+    refind
+
     # app
     thunderbird
 
@@ -15,8 +18,6 @@
     # unfree
     discord
     betterdiscordctl
-
-    # editor / ide
 
     # common line utility
     zip

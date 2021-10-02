@@ -38,9 +38,21 @@
         "python"
       ];
     };
+    plugins = [
+      {
+        name = "zsh-nix-shell";
+        file = "nix-shell.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "chisui";
+          repo = "zsh-nix-shell";
+          rev = "v0.4.0";
+          sha256 = "037wz9fqmx0ngcwl9az55fgkipb745rymznxnssr3rx9irb6apzg";
+        };
+      }
+    ];
     shellAliases = {
       df = "df -h";
-      config = "vim ~/dotfile/home-manager/nixpkgs/";
+      config = "vim ~/dotfiles/home-manager/nixpkgs/";
       frmac = "setxkbmap fr -variant mac";
       #python = "python3";
       #pip = "python -m pip";
