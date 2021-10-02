@@ -19,6 +19,9 @@
     discord
     betterdiscordctl
 
+    # ide
+    jetbrains.clion
+
     # common line utility
     zip
     unzip

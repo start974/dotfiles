@@ -52,8 +52,11 @@
     ];
     shellAliases = {
       df = "df -h";
-      config = "vim ~/dotfiles/home-manager/nixpkgs/";
+      config = "cd ~/dotfiles/home-manager/nixpkgs/ \\
+                && vim .                            \\
+                && home-manager build";
       frmac = "setxkbmap fr -variant mac";
+      make = "make -j`nproc`";
       #python = "python3";
       #pip = "python -m pip";
     };
