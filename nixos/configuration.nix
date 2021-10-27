@@ -112,7 +112,9 @@
    };
 
   # List services that you want to enable:
-
+  services.journald.extraConfig = ''
+        SystemMaxUse=1G
+    '';
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 

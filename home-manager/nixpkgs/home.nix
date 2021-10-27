@@ -19,10 +19,12 @@
 
   # import all other modules
   imports = [
-    ./git.nix
     ./package.nix
+
+    ./git.nix
     ./powerline.nix
     ./vim.nix
+    ./vscode.nix
     ./xresources.nix
     ./zsh.nix
   ];

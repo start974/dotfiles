@@ -18,6 +18,7 @@
     # unfree
     discord
     betterdiscordctl
+    spotify
 
     # ide
     jetbrains.clion
@@ -43,6 +44,7 @@
     # language & tool
     perl
     python3
+    conda
     coq
     gnumake
     # java (see below)
@@ -114,6 +116,9 @@
 
   # vim editor (see config in vim.nix)
   vim.enable = true;
+
+  # vs code (see config in vscode.nix)
+  vscode.enable = true;
 
   # zsh shell (see config in zsh.nix)
   zsh.enable = true;

@@ -54,7 +54,7 @@
       df = "df -h";
       config = "cd ~/dotfiles/home-manager/nixpkgs/ \\
                 && vim .                            \\
-                && home-manager build";
+                && home-manager switch";
       frmac = "setxkbmap fr -variant mac";
       make = "make -j`nproc`";
       #python = "python3";

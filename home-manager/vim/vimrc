@@ -60,15 +60,14 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug '5long/pytest-vim-compiler'
+Plug 'whonore/Coqtail'
+Plug 'ocaml/vim-ocaml'
 
 
 " 'IDE' features
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'janko/vim-test'
-
-" Coq
-Plug 'whonore/Coqtail'
 
 call plug#end()
 
@@ -326,3 +325,8 @@ function! Formatonsave()
   pyf ~/config/vim/clang-format.py
 endfunction
 "autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
+
+" ocaml
+" merlin
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
