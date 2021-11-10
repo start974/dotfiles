@@ -53,8 +53,8 @@
         style = "plain";
       };
       keybindings = {
-        "Shift-Control-C" = "perl:clipboard:copy";
-        "Shift-Control-V" = "perl:clipboard:paste";
+        "keysym.M-c" = "perl:clipboard:copy";
+        "keysym.M-V" = "perl:clipboard:paste";
       };
       extraConfig = {
         letterSpace = 0;
@@ -64,6 +64,7 @@
         "perl-lib" = "${config.home.profileDirectory}/lib/urxvt/perl";
 
         # using perl-ext-common: "default, matcher"
+        "clipboard.autocopy" = true;
         "url-launcher" = "firefox";
         "underlineURLs" = true;
         "urlButton" = 1; # left click

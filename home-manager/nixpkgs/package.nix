@@ -30,6 +30,7 @@
     tig
     ncdu
     taskwarrior-tui
+    networkmanager_dmenu
 
     # image
     scrot
