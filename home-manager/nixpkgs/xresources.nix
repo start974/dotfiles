@@ -61,7 +61,7 @@
 
         # perl script
         "perl-ext-common" = "default,matcher,clipboard,resize-font";
-        "perl-lib" = "${config.home.profileDirectory}/lib/urxvt/perl";
+        "perl-lib" = "${pkgs.rxvt-unicode}/lib/urxvt/perl";
 
         # using perl-ext-common: "default, matcher"
         "clipboard.autocopy" = true;

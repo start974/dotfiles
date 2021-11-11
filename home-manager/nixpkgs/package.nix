@@ -11,6 +11,7 @@
 
     # app
     thunderbird
+    arandr
 
     # font
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })

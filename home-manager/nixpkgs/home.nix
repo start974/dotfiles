@@ -10,8 +10,6 @@
     username = "jdam";
     homeDirectory = "/home/${username}";
 
-    keyboard.layout = "fr(mac)";
-
     sessionVariables = {
       EDITOR = "vim";
     };
