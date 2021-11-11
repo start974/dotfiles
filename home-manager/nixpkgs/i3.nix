@@ -1,7 +1,68 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
+#TODO add image to lock
+let i3lock = ":${pkgs.i3lock}/bin/i3lock -n -c 000000";
+i3bar_name = "bottom" ;
+i3bar_file = "${config.home.homeDirectory}/.config/i3status-rust/config-${i3bar_name}.toml"; in
 {
+  # set screen locker to i3 lock
+  services.screen-locker = {
+    enable = true;
+    inactiveInterval = 5;
+    lockCmd = i3lock;
+  };
+
+  xsession.windowManager.i3 = {
+    enable = true;
+    package = pkgs.i3-gaps;
+    config = {
+      assigns = {
+        "1: web" = [{ class = "firefox"; }];
+      };
+      modifier = "Mod4";
+      #gaps = {
+      #  smartGaps = true;
+      #};
+      bars = [
+        {
+          fonts = {
+            names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
+            size = 11.0;
+          };
+          colors = {
+            separator = "#666666";
+            background = "#111111";
+            statusline = "#dddddd";
+            focusedWorkspace = {
+              background = "#0088CC"; 
+              border = "#0088CC";
+              text = "#ffffff";
+            };
+            activeWorkspace = {
+              background = "#333333"; 
+              border ="#333333";
+              text = "#ffffff";
+            };
+            inactiveWorkspace = {
+              background = "#333333"; 
+              border = "#333333";
+              text = "#888888";
+            };
+            urgentWorkspace = {
+              background = "#2f343a";
+              border = "#900000";
+              text = "#ffffff";
+            };
+          };
+          statusCommand = "i3status-rs ${i3bar_file}";
+          position = "bottom";
+        }
+      ];
+    };
+  };
+
+  # i3 status bar
   programs.i3status-rust = {
-    bars.default = {
+    bars."${i3bar_name}" = {
       blocks = [
         {
           block = "disk_space";
