@@ -1,36 +1,55 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
 #TODO add image to lock
-let i3lock = ":${pkgs.i3lock}/bin/i3lock -n -c 000000";
-i3bar_name = "bottom" ;
-i3bar_file = "${config.home.homeDirectory}/.config/i3status-rust/config-${i3bar_name}.toml"; in
-{
+let 
+  i3lock_cmd = "${pkgs.i3lock}/bin/i3lock -n -c 000000";
+  i3bar_name = "bottom" ;
+  i3bar_file = "${../i3status-rust}/config-${i3bar_name}.toml";
+  sound_adjust = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl";
+  mod = "Mod4";
+in
+  {
   # set screen locker to i3 lock
   services.screen-locker = {
     enable = true;
     inactiveInterval = 5;
-    lockCmd = i3lock;
+    lockCmd = i3lock_cmd;
   };
 
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;
     config = {
-      assigns = {
-        "1: web" = [{ class = "firefox"; }];
+      modifier = mod;
+      fonts = {
+        names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
+        size = 13.0;
       };
-      modifier = "Mod4";
-      #gaps = {
-      #  smartGaps = true;
-      #};
+      gaps = {
+        smartGaps = true;
+        smartBorders = "on";
+        inner = 5;
+      };
+      keybindings = lib.mkOptionDefault {
+        # lock
+        "Control+${mod}+l" = "exec ${i3lock_cmd}";
+        # firefox
+        "${mod}+b" = "exec ${pkgs.firefox}/bin/firefox";
+        #sound
+        "XF86AudioRaiseVolume" = "${sound_adjust} set-sink-volume 0 +5%";
+        "XF86AudioLowerVolume" = "${sound_adjust} set-sink-volume 0 -5%";
+        "XF86AudioMute"        = "${sound_adjust} set-sink-mute 0 toggle";
+        "XF86AudioMicMute"     = "${sound_adjust} set-source-mute 1 toggle";
+
+        };
       bars = [
         {
           fonts = {
             names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
-            size = 11.0;
+            size = 10.0;
           };
           colors = {
             separator = "#666666";
-            background = "#111111";
+            background = "#1111122";
             statusline = "#dddddd";
             focusedWorkspace = {
               background = "#0088CC"; 
@@ -53,7 +72,7 @@ i3bar_file = "${config.home.homeDirectory}/.config/i3status-rust/config-${i3bar_
               text = "#ffffff";
             };
           };
-          statusCommand = "i3status-rs ${i3bar_file}";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${i3bar_file}";
           position = "bottom";
         }
       ];
