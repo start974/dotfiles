@@ -29,6 +29,7 @@
           display_type = "memory";
           format_mem = "{mem_used}/{mem_total}({mem_used_percents})";
           icons = true;
+          clickable = false;
           interval = 5;
           warning_mem = 70;
           critical_mem = 90;
@@ -63,9 +64,6 @@
           block = "time";
           interval = 5;
           format = "%a %D %T";
-        }
-        {
-          block = "notify";
         }
       ];
       icons = "awesome5";

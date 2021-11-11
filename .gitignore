@@ -1,12 +1,17 @@
-home-manager/pulse/
-home-manager/environment.d/
-home-manager/git/
 home-manager/TabNine/
+home-manager/VSCodium/
 home-manager/broot/
 home-manager/discord/
+home-manager/dunst/
+home-manager/environment.d/
 home-manager/fontconfig/
+home-manager/git/
+home-manager/i3status-rust/
 home-manager/libreoffice/
 home-manager/matplotlib/
+home-manager/pulse/
+home-manager/spotify/
+home-manager/systemd/
 home-manager/tmux/
 home-manager/topgrade.toml
 

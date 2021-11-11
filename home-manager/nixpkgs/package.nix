@@ -53,8 +53,6 @@
     # java (see below)
   ];
   services = {
-    # dunst notification deamon
-    dunst.enable = true;
   };
  
  # programs
