@@ -20,6 +20,7 @@
     ./package.nix
 
     ./git.nix
+    ./i3.nix
     ./powerline.nix
     ./vim.nix
     ./vscode.nix

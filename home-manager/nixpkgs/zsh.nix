@@ -67,7 +67,7 @@
 
     mcfly = {
       enableZshIntegration = true;
-      enableLightTheme = true;
+      enableLightTheme = false;
       enableFuzzySearch = true;
     };
 
