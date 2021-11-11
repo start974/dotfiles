@@ -44,42 +44,45 @@
       defaultSession = "none+i3";
     };
 
-      # layout
-      layout = "us(intl)";
+    # layout
+    layout = "us(intl)";
 
-      # Enable the i3 Desktop Environment.
-      windowManager.i3 = {
-        enable = true;
-        extraPackages = with pkgs; [
-          libnotify
-          dmenu       # application launcher most people use
-          i3status    # gives you the default i3 status bar
-          i3lock      # default i3 screen locker
-          i3blocks    # if you are planning on using i3blocks over i3status
-        ];
-      };
-      xautolock = {
-        enable = true;
-        enableNotifier = true;
-        locker = "${pkgs.i3lock}/bin/i3lock -c 000000";
-        notifier = ''${pkgs.libnotify}/bin/notify-send "Locking in 10 seconds"'';
-        time = 10;
-      };
+    # Enable the i3 Desktop Environment.
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        libnotify
+        rxvt_unicode
+        dmenu       # application launcher most people use
+        i3status    # gives you the default i3 status bar
+        i3lock      # default i3 screen locker
+        i3blocks    # if you are planning on using i3blocks over i3status
+      ];
     };
-
+    xautolock = {
+      enable = true;
+      enableNotifier = true;
+      locker = "${pkgs.i3lock}/bin/i3lock -c 000000";
+      notifier = ''${pkgs.libnotify}/bin/notify-send "Locking in 10 seconds"'';
+      time = 10;
+    };
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    support32Bit = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${user.name}" = {
     isNormalUser = true;
     description = user.description;
-    extraGroups = [ "wheel" "networkmannager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmannager" "audio" "video"];
   };
 
   # zsh default shell
