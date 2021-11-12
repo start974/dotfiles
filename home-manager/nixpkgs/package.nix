@@ -10,6 +10,7 @@
     refind
 
     # app
+    networkmanager_dmenu
     thunderbird
     arandr
 
@@ -24,6 +25,7 @@
 
     # ide
     jetbrains.clion
+    jetbrains.idea-ultimate
 
     # common line utility
     zip
@@ -32,7 +34,7 @@
     tig
     ncdu
     taskwarrior-tui
-    networkmanager_dmenu
+    trash-cli
 
     # image
     scrot

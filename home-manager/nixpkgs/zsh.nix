@@ -57,6 +57,7 @@
                 && home-manager switch";
       frmac = "setxkbmap fr -variant mac";
       make = "make -j`nproc`";
+      rm = "trash-put";
       #python = "python3";
       #pip = "python -m pip";
     };

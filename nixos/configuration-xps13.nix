@@ -29,6 +29,11 @@
     fsType = "ext4";
   };
 
+  fileSystems."/drive/data" = {
+    device = "/dev/disk/by-bylabel/DATA";
+    fsType = "exfat";
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/6C2A-C265";
     fsType = "vfat";

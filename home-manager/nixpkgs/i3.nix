@@ -103,6 +103,17 @@ in
           alert = 20.0;
         }
         {
+          block = "disk_space";
+          path = "/drive/data";
+          alias = "data";
+          info_type = "used";
+          format = "{icon} {alias}: {available} free";
+          unit = "GB";
+          interval = 2 * 60;
+          warning = 30.0;
+          alert = 10.0;
+        }
+        {
           block = "cpu";
           interval = 1;
           format = "{barchart}{utilization} {frequency}";
