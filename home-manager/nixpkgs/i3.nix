@@ -20,6 +20,7 @@ in
     package = pkgs.i3-gaps;
     config = {
       modifier = mod;
+      defaultWorkspace = "workspace number 2";
       fonts = {
         names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
         size = 13.0;
@@ -76,7 +77,14 @@ in
           position = "bottom";
         }
       ];
+      assigns = {
+      "1: web" = [{ class = "^Firefox$"; }];
+      };
     };
+    extraConfig = 
+    ''
+    exec --no-startup-id ${pkgs.firefox}/bin/firefox
+    '';
   };
 
   # i3 status bar
