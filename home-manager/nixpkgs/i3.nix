@@ -1,11 +1,10 @@
 { pkgs, lib, config, ... }:
-#TODO add image to lock
-let 
-  i3lock_cmd = "${pkgs.i3lock}/bin/i3lock -n -c 000000";
+let
+  i3lock_cmd = "${../i3}/lock.sh";
   i3bar_name = "bottom" ;
   i3bar_file = "${../i3status-rust}/config-${i3bar_name}.toml";
-  sound_adjust = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl";
   mod = "Mod4";
+  amixer = "${pkgs.alsaUtils}/sbin/amixer";
 in
   {
   # set screen locker to i3 lock
@@ -36,10 +35,9 @@ in
         # firefox
         "${mod}+b" = "exec ${pkgs.firefox}/bin/firefox";
         #sound
-        "XF86AudioRaiseVolume" = "${sound_adjust} set-sink-volume 0 +5%";
-        "XF86AudioLowerVolume" = "${sound_adjust} set-sink-volume 0 -5%";
-        "XF86AudioMute"        = "${sound_adjust} set-sink-mute 0 toggle";
-        "XF86AudioMicMute"     = "${sound_adjust} set-source-mute 1 toggle";
+        "XF86AudioRaiseVolume" = "exec ${amixer} -q sset Master 5%+ unmute";
+        "XF86AudioLowerVolume" = "exec ${amixer} -q sset Master 5%- unmute";
+        "XF86AudioMute"        = "exec ${amixer} -q sset Master toggle";
 
         };
       bars = [

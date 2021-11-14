@@ -30,7 +30,7 @@
   };
 
   fileSystems."/drive/data" = {
-    device = "/dev/disk/by-bylabel/DATA";
+    device = "/dev/disk/by-label/DATA";
     fsType = "exfat";
   };
 
@@ -66,10 +66,8 @@
     ];
   };
 
-  # sound
-  boot.extraModprobeConfig = ''
-     options snd-intel-dspcfg dsp_driver=1
-  '';
 
+  #bluetooth
+  hardware.bluetooth.enable = true;
 }
 

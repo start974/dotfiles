@@ -10,9 +10,9 @@
     refind
 
     # app
+    arandr
     networkmanager_dmenu
     thunderbird
-    arandr
 
     # font
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
@@ -28,23 +28,22 @@
     jetbrains.idea-ultimate
 
     # common line utility
-    zip
-    unzip
-    pandoc
-    tig
     ncdu
+    pandoc
     taskwarrior-tui
+    tig
     trash-cli
+    unzip
+    zip
 
-    # image
+    # image / video
+    imagemagick
     scrot
+    vlc
 
     # document
     evince
     libreoffice
-
-    # video
-    vlc
 
     # language & tool
     perl
@@ -89,6 +88,7 @@
 
     # java
     java.enable = true;
+    java.package = pkgs.jdk;
 
     # mathplotlib (python library)
     matplotlib.enable = true;
