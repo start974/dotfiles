@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{ config, lib, pkgs, ... }:
 {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -14,13 +13,11 @@
       EDITOR = "vim";
     };
   };
-
   # import all other modules
   imports = [
     ./package.nix
 
     ./git.nix
-    ./i3.nix
     ./powerline.nix
     ./vim.nix
     ./vscode.nix

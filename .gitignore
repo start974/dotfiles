@@ -1,6 +1,1 @@
-home-manager/
-!home-manager/install.sh
-!home-manager/nixpkgs
-!home-manager/vim/vimrc
-!home-manager/i3/lock.sh
-!home-manager/i3/lock_icon.sh
+home-manager/nixpkgs/home.nix

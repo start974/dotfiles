@@ -1,0 +1,12 @@
+- continue to services
+
+parameter:
+- [ ] tmux
+
+try to config
+- [ ] i3
+    - [ ] i3 status (parameter)
+    - [ ] x server
+        - [ ] configure auto login
+- [ ] gpg to enable ssh agent
+
