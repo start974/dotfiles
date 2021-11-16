@@ -1,5 +1,5 @@
 #!/bin/sh -xe
-icon="(real$(dirname $0)/lock_icon.png"
+icon="$(realpath $(dirname $0))/lock_icon.png"
 
 # create a temp file
 img=$(mktemp /tmp/XXXXXXXXXX.png)

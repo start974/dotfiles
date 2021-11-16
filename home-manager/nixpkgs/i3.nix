@@ -18,10 +18,16 @@ in
   # set screen locker to i3 lock
   services.screen-locker = {
     enable = true;
-    inactiveInterval = 5;
+    inactiveInterval = 3;
     lockCmd = i3lock_cmd;
+    xautolock = {
+      enable = true;
+      detectSleep = true;
+      package = pkgs.xautolock;
+    };
   };
 
+  # i3 gestion
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;

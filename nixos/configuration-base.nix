@@ -60,13 +60,6 @@
         i3lock      # default i3 screen locker
       ];
     };
-    xautolock = {
-      enable = true;
-      enableNotifier = true;
-      locker = "${pkgs.i3lock}/bin/i3lock -c 000000";
-      notifier = ''${pkgs.libnotify}/bin/notify-send "Locking in 10 seconds"'';
-      time = 10;
-    };
   };
 
   # Enable CUPS to print documents.

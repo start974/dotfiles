@@ -39,7 +39,7 @@
         }
         {
           block = "net";
-          format = "{ip} {signal_strength} {speed_up;K*b} {speed_down;K*b}";
+          format = "{ip} {speed_up;K*b} {speed_down;K*b}";
           interval = 5;
         }
         { 
