@@ -1,6 +1,9 @@
 { ... }:
 {
   imports = [
-    ./home-common.nix { name_pc = "xps13"; }
+    ./home-common.nix
+    (import ./i3.nix { 
+      name_pc = "xps13";
+    })
   ];
 }
