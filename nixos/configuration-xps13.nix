@@ -3,7 +3,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-    (import ./configuration-base.nix { hostName = "nixos-xps-13"; })
+    (import ./configuration-base.nix { hostName = "nixos-xps13"; })
     <nixos-hardware/dell/xps/13-9310>
     (modulesPath + "/installer/scan/not-detected.nix")
   ];

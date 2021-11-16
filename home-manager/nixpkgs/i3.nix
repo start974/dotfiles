@@ -96,6 +96,7 @@ in
     extraConfig = 
     ''
       exec --no-startup-id ${pkgs.firefox}/bin/firefox
+      exec --no-startup-id nm-applet
     '';
   };
 }

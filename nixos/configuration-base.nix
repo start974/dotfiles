@@ -27,7 +27,6 @@
   networking = {
     inherit hostName;
     networkmanager.enable = true;
-    useDHCP = false;
   };
 
   # Set your time zone.

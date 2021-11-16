@@ -11,6 +11,7 @@
     barrier
     networkmanager_dmenu
     thunderbird
+    networkmanagerapplet
 
     # font
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
