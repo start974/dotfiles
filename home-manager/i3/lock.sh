@@ -1,5 +1,5 @@
 #!/bin/sh -xe
-icon="$(dirname $0)/lock_icon.png"
+icon="(real$(dirname $0)/lock_icon.png"
 
 # create a temp file
 img=$(mktemp /tmp/XXXXXXXXXX.png)
@@ -8,7 +8,7 @@ img=$(mktemp /tmp/XXXXXXXXXX.png)
 import -window root $img
 
 # blur the screenshot (slow!)
-convert $img -blur 2,5 $img
+convert $img -blur 5,5 $img
 
 # Add the lock image
 convert $img $icon -gravity center -composite $img
