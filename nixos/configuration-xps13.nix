@@ -61,8 +61,14 @@
     ];
   };
 
-
   #bluetooth
   hardware.bluetooth.enable = true;
+  
+  nixpkgs.config.allowUnfree = true; 
+  #finger print
+  #services.fprintd = {
+  #  enable = true;
+  #  package = pkgs.libfprint-2-tod1-goodix;
+  #};
 }
 

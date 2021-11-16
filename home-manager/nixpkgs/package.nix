@@ -6,11 +6,9 @@
   fonts.fontconfig.enable = true;
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    # boot
-    refind
-
     # app
     arandr
+    barrier
     networkmanager_dmenu
     thunderbird
 
