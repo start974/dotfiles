@@ -76,7 +76,7 @@ in
           };
           colors = {
             separator = "#666666";
-            background = "#1111122";
+            background = "#223344";
             statusline = "#dddddd";
             focusedWorkspace = {
               background = "#0088CC"; 
@@ -111,7 +111,7 @@ in
     ''
       exec --no-startup-id ${pkgs.firefox}/bin/firefox
       exec --no-startup-id nm-applet
-      exec --no-startup-id feh --bg-center ${wallpaper}
+      exec --no-startup-id feh --bg-fill ${wallpaper}
     '';
   };
 }
