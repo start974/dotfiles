@@ -5,6 +5,7 @@
 { pkgs, lib, config, ... }:
 let
   i3lock_cmd = "${../i3}/lock.sh";
+  wallpaper = "${../i3/wallpaper/wallpaper1.jpg}";
   i3bar_file = "~/.config/i3status-rust/config-${i3bar_name}.toml";
   mod = "Mod4";
   amixer = "${pkgs.alsaUtils}/sbin/amixer";
@@ -45,13 +46,26 @@ in
       };
       keybindings = lib.mkOptionDefault {
         # lock
-        "Control+${mod}+l" = "exec ${i3lock_cmd}";
+        "Control+${mod}+l"      = "exec ${i3lock_cmd}";
+        "XF86Lock"              = "exec ${i3lock_cmd}";
+
         # firefox
-        "${mod}+b" = "exec ${pkgs.firefox}/bin/firefox";
+        "${mod}+b"              = "exec ${pkgs.firefox}/bin/firefox";
+        "XF86HomePage"          = "exec ${pkgs.firefox}/bin/firefox";
+
+        # d-menu network manager
+        "${mod}+n"              = "exec ${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
+
         #sound
-        "XF86AudioRaiseVolume" = "exec ${amixer} -q sset Master 5%+ unmute";
-        "XF86AudioLowerVolume" = "exec ${amixer} -q sset Master 5%- unmute";
-        "XF86AudioMute"        = "exec ${amixer} -q sset Master toggle";
+        "XF86AudioRaiseVolume"  = "exec ${amixer} -q sset Master 5%+ unmute";
+        "XF86AudioLowerVolume"  = "exec ${amixer} -q sset Master 5%- unmute";
+        "XF86AudioMute"         = "exec ${amixer} -q sset Master toggle";
+
+        # multimedia
+        "XF86AudioPlay"         = "exec playerctl play-pause";
+        "XF86AudioPause"        = "exec playerctl play-pause";
+        "XF86AudioNext"         = "exec playerctl next";
+        "XF86AudioPrev"         = "exec playerctl previous";
 
       };
       bars = [
@@ -97,6 +111,7 @@ in
     ''
       exec --no-startup-id ${pkgs.firefox}/bin/firefox
       exec --no-startup-id nm-applet
+      exec --no-startup-id feh --bg-center ${wallpaper}
     '';
   };
 }

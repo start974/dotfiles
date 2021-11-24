@@ -10,8 +10,9 @@
     arandr
     barrier
     networkmanager_dmenu
-    thunderbird
     networkmanagerapplet
+    playerctl
+    thunderbird
 
     # font
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
