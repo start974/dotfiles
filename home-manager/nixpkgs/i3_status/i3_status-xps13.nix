@@ -11,7 +11,7 @@
           path = "/";
           alias = "sys";
           info_type = "used";
-          format = "{icon} {alias}: {used}/{total} ({available} free)";
+          format = "{icon} {alias}: {used}/{total}";
           unit = "GB";
           interval = 60;
           warning = 40.0;
@@ -22,7 +22,7 @@
           path = "/drive/data";
           alias = "data";
           info_type = "used";
-          format = "{icon} {alias}: {available} free";
+          format = "{alias}: {available} free";
           unit = "GB";
           interval = 2 * 60;
           warning = 30.0;
@@ -41,7 +41,7 @@
         {
           block = "memory";
           display_type = "memory";
-          format_mem = "{mem_used}/{mem_total}({mem_used_percents})";
+          format_mem = "{mem_used}({mem_used_percents})";
           icons = true;
           clickable = false;
           interval = 5;
@@ -50,10 +50,9 @@
         }
         {
           block = "net";
-          format = "{ssid} {signal_strength} {speed_up;K*b} {speed_down;K*b}";
+          format = "{ssid} {speed_up;K*b} {speed_down;K*b}";
           interval = 5;
         }
-
         {
           block = "backlight";
           step_width = 5;

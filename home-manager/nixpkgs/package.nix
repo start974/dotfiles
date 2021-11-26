@@ -12,7 +12,7 @@
     networkmanager_dmenu
     networkmanagerapplet
     playerctl
-    thunderbird
+    rofi-power-menu
 
     # font
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
@@ -44,6 +44,7 @@
     # document
     evince
     libreoffice
+    thunderbird
 
     # language & tool
     perl
@@ -53,8 +54,6 @@
     gnumake
     # java (see below)
   ];
-  services = {
-  };
  
  # programs
   programs = {
@@ -102,6 +101,10 @@
 
     # powerline-go 
     powerline-go.enable = true;
+
+    # rofi (dmenu alternative)
+    # (see config in "i3.nix")
+    rofi.enable = true;
 
     # ssh client
     ssh.enable = true;

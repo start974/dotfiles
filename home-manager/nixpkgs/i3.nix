@@ -10,17 +10,34 @@ let
   mod = "Mod4";
   amixer = "${pkgs.alsaUtils}/sbin/amixer";
   i3_status_nix = ./. + "/i3_status/i3_status-${name_pc}.nix";
+  web_workspace = "1: web";
+  chat_workspace = "5: chat";
+  music_workspace = "6: music";
+  exec_cmd = "exec --no-startup-id";
+  mode_default_str = "mode default";
 in
   {
     imports = [
       (import i3_status_nix { inherit i3bar_name; })
     ];
+
+  # rofi 
+  programs.rofi = {
+    location = "top";
+    theme = "glue_pro_blue";
+    pass.enable = false;
+    plugins = with pkgs; [
+      rofi-calc
+      rofi-emoji
+      rofi-power-menu
+    ];
+  };
   
   # set screen locker to i3 lock
   services.screen-locker = {
     enable = true;
     inactiveInterval = 3;
-    lockCmd = i3lock_cmd;
+    lockCmd = "${i3lock_cmd}";
     xautolock = {
       enable = true;
       detectSleep = true;
@@ -45,15 +62,30 @@ in
         inner = 5;
       };
       keybindings = lib.mkOptionDefault {
+        # workspaces
+        "${mod}+1"              = "workspace ${web_workspace}";
+        "${mod}+Shift+1"        = "move container to workspace ${web_workspace}";
+
+        "${mod}+5"              = "workspace ${chat_workspace}";
+        "${mod}+Shift+5"        = "move container to workspace ${chat_workspace}";
+
+        "${mod}+6"              = "workspace ${music_workspace}";
+        "${mod}+Shift+6"        = "move container to workspace ${music_workspace}";
+
         # lock
         "Control+${mod}+l"      = "exec ${i3lock_cmd}";
         "XF86Lock"              = "exec ${i3lock_cmd}";
+        "${mod}+Shift+e"        = "exec \"rofi -show p " +
+        "-modi p:rofi-power-menu -lines 6 -location 1 -width 20\"";
+
 
         # firefox
         "${mod}+b"              = "exec ${pkgs.firefox}/bin/firefox";
         "XF86HomePage"          = "exec ${pkgs.firefox}/bin/firefox";
 
-        # d-menu network manager
+        # d-menu
+        "${mod}+d"              = "${exec_cmd} \"rofi -modi window,drun,run,calc,emoji " +
+          "-show run -sidebar-mode -show-icons -lines 7\"";
         "${mod}+n"              = "exec ${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
 
         #sound
@@ -104,14 +136,15 @@ in
         }
       ];
       assigns = {
-        "1: web" = [{ class = "^Firefox$"; }];
+        ${web_workspace}    = [{ class = "Firefox"; instance="Navigator"; }];
+        ${chat_workspace}   = [{ class = "discord"; }];
+        ${music_workspace}  = [{ class = "Spotify"; }];
       };
+      startup = [
+        { command = "firefox"; notification = false; }
+        { command = "nm-applet"; }
+        { command = "feh --bg-fill ${wallpaper}"; }
+      ];
     };
-    extraConfig = 
-    ''
-      exec --no-startup-id ${pkgs.firefox}/bin/firefox
-      exec --no-startup-id nm-applet
-      exec --no-startup-id feh --bg-fill ${wallpaper}
-    '';
   };
 }
