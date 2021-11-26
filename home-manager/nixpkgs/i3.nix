@@ -51,6 +51,7 @@ in
     package = pkgs.i3-gaps;
     config = {
       modifier = mod;
+      terminal = "alacritty";
       defaultWorkspace = "workspace number 2";
       fonts = {
         names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];

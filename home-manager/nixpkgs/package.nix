@@ -56,7 +56,10 @@
   ];
  
  # programs
-  programs = {
+ programs = {
+    # alcritty a terminal
+    alacritty.enable = true;
+
     # clone of "cat(1)"
     bat.enable = true;
 
