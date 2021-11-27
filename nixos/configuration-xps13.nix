@@ -53,12 +53,12 @@
   programs.light.enable = true;
   services.actkbd = {
     enable = true;
-    bindings = [
-      { keys = [ 225 ]; events = [ "key" ]; command =
-        "/run/current-system/sw/bin/light -A 5"; }
-      { keys = [ 224 ]; events = [ "key" ]; command =
-        "/run/current-system/sw/bin/light -U 5"; }
-    ];
+    #bindings = [
+    #  { keys = [ 225 ]; events = [ "key" ]; command =
+    #    "/run/current-system/sw/bin/light -A 5"; }
+    #  { keys = [ 224 ]; events = [ "key" ]; command =
+    #    "/run/current-system/sw/bin/light -U 5"; }
+    #];
   };
 
   #bluetooth

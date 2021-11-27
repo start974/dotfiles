@@ -55,17 +55,20 @@
     # java (see below)
   ];
  
- # programs
- programs = {
+
+  # programs
+  programs = {
     # alcritty a terminal
     alacritty.enable = true;
+
+    # autorandr
+    autorandr.enable = true;
 
     # clone of "cat(1)"
     bat.enable = true;
 
     # A better way to navigate directories
     broot.enable = true;
-    
 
     # a modern replacement for ls. (like l
     exa.enable = true;

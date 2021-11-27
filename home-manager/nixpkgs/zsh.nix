@@ -58,6 +58,7 @@
       frmac = "setxkbmap fr -variant mac";
       make = "make -j`nproc`";
       rm = "trash-put";
+      cat = "bat";
       #python = "python3";
       #pip = "python -m pip";
     };

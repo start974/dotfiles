@@ -94,6 +94,10 @@ in
         "XF86AudioLowerVolume"  = "exec ${amixer} -q sset Master 5%- unmute";
         "XF86AudioMute"         = "exec ${amixer} -q sset Master toggle";
 
+        # light
+        "XF86MonBrightnessUp"   = "exec light -A 5%";
+        "XF86MonBrightnessDown" = "exec light -U 5%";
+
         # multimedia
         "XF86AudioPlay"         = "exec playerctl play-pause";
         "XF86AudioPause"        = "exec playerctl play-pause";
