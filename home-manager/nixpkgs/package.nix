@@ -70,10 +70,6 @@
     # A better way to navigate directories
     broot.enable = true;
 
-    # a modern replacement for ls. (like l
-    exa.enable = true;
-    exa.enableAliases = true;
-
     # light image viewer
     feh.enable = true;
 
@@ -94,6 +90,10 @@
     # java
     java.enable = true;
     java.package = pkgs.jdk;
+
+    # a modern replacement for ls.
+    lsd.enable = true;
+    lsd.enableAliases = true;
 
     # mathplotlib (python library)
     matplotlib.enable = true;

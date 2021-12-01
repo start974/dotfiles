@@ -125,7 +125,7 @@
       #   - (Linux/BSD) monospace
       #   - (Windows) Consolas
       #family: monospace
-      family = "Droid Sans Mono Nerd Font";
+      family = "DroidSansMono Nerd Font";
 
       # The `style` can be specified to pick a specific face.
       style = "Regular";
@@ -138,7 +138,7 @@
       # If the bold family is not specified, it will fall back to the
       # value specified for the normal font.
       #family: monospace
-      family = "Droid Sans Mono Nerd Font";
+      family = "DroidSansMono Nerd Font";
 
       # The `style` can be specified to pick a specific face.
       style = "Bold";
@@ -163,7 +163,7 @@
       # If the bold italic family is not specified, it will fall back to the
       # value specified for the normal font.
       #family: monospace
-      family = "Droid Sans Mono Nerd Font";
+      family = "DroidSansMono Nerd Font";
 
       # The `style` can be specified to pick a specific face.
       style = "Bold Italic";
