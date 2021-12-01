@@ -62,7 +62,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug '5long/pytest-vim-compiler'
 Plug 'whonore/Coqtail'
 Plug 'ocaml/vim-ocaml'
-
+Plug 'LnL7/vim-nix'
 
 " 'IDE' features
 Plug 'tpope/vim-fugitive'

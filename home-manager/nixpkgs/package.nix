@@ -15,7 +15,7 @@
     rofi-power-menu
 
     # font
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
     font-awesome
 
     # unfree
@@ -91,6 +91,9 @@
     java.enable = true;
     java.package = pkgs.jdk;
 
+    # kitty termial
+    kitty.enable = true;
+    kitty.font.name = "FiraCode Nerd Font";
     # a modern replacement for ls.
     lsd.enable = true;
     lsd.enableAliases = true;

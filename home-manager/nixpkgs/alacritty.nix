@@ -1,7 +1,10 @@
 { pkgs, config, ... }:
-{
-  services.picom.enable = true;
-  programs.alacritty.settings = {
+let
+  font_family = "FiraCode Nerd Font";
+in
+  {
+    services.picom.enable = true;
+    programs.alacritty.settings = {
   # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
   # Import additional configuration files
@@ -125,7 +128,7 @@
       #   - (Linux/BSD) monospace
       #   - (Windows) Consolas
       #family: monospace
-      family = "DroidSansMono Nerd Font";
+      family = font_family;
 
       # The `style` can be specified to pick a specific face.
       style = "Regular";
@@ -138,7 +141,7 @@
       # If the bold family is not specified, it will fall back to the
       # value specified for the normal font.
       #family: monospace
-      family = "DroidSansMono Nerd Font";
+      family = font_family;
 
       # The `style` can be specified to pick a specific face.
       style = "Bold";
@@ -150,7 +153,7 @@
       # If the italic family is not specified, it will fall back to the
       # value specified for the normal font.
       #family: monospace
-      family = "Droid Sans Mono Nerd Font";
+      family = font_family;
 
       # The `style` can be specified to pick a specific face.
       style = "Italic";
@@ -163,7 +166,7 @@
       # If the bold italic family is not specified, it will fall back to the
       # value specified for the normal font.
       #family: monospace
-      family = "DroidSansMono Nerd Font";
+      family = font_family;
 
       # The `style` can be specified to pick a specific face.
       style = "Bold Italic";
@@ -401,7 +404,7 @@
     # When set to `true`, selected text will be copied to the primary clipboard.
     #save_to_clipboard: false
 
-  cursor = {
+    cursor = {
     # Cursor style
     style = {
       # Cursor shape
@@ -420,8 +423,8 @@
       #   - On: Enable blinking by default
       #   - Always: Force the cursor to always blink
       blinking = "Off";
-      };
     };
+  };
     # Vi mode cursor style
     #
     # If the vi mode cursor style is `None` or not specified, it will fall back to

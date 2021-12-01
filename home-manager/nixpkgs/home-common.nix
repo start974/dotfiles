@@ -16,10 +16,11 @@
   # import all other modules
   imports = [
     ./package.nix
-    
+
     ./alacritty.nix
     ./git.nix
     ./powerline.nix
+    ./redshift.nix
     ./vim.nix
     ./vscode.nix
     ./zsh.nix
