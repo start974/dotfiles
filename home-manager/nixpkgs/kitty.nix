@@ -1,6 +1,5 @@
 {config, ...}:
 {
-  services.picom.enable = true;
   programs.kitty = {
     enable = true;
     font = {

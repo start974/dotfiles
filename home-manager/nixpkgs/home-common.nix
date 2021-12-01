@@ -19,6 +19,7 @@
 
     ./git.nix
     ./kitty.nix
+    ./picom.nix
     ./powerline.nix
     ./redshift.nix
     ./vim.nix
