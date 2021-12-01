@@ -17,8 +17,8 @@
   imports = [
     ./package.nix
 
-    ./alacritty.nix
     ./git.nix
+    ./kitty.nix
     ./powerline.nix
     ./redshift.nix
     ./vim.nix

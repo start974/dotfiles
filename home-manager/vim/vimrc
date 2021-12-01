@@ -278,6 +278,7 @@ endif
 set termguicolors
 let ayucolor="mirage"
 colorscheme ayu
+set guifont=FiraCode:h12
 
 " change color coqtail
 hi def CoqtailChecked guibg=DarkMagenta

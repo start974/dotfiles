@@ -93,7 +93,7 @@
 
     # kitty termial
     kitty.enable = true;
-    kitty.font.name = "FiraCode Nerd Font";
+
     # a modern replacement for ls.
     lsd.enable = true;
     lsd.enableAliases = true;

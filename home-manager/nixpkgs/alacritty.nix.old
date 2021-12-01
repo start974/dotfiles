@@ -3,7 +3,9 @@ let
   font_family = "FiraCode Nerd Font";
 in
   {
-    services.picom.enable = true;
+    services.picom = {
+      enable = true;
+    };
     programs.alacritty.settings = {
   # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
