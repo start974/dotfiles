@@ -58,10 +58,10 @@
     # library
   ];
  
-
   # programs
   programs = {
     # alcritty a terminal
+    # (see config in "alacritty.nix")
     # alacritty.enable = true;
 
     # autorandr
@@ -95,6 +95,7 @@
     java.package = pkgs.jdk;
 
     # kitty termial
+    # (see config in "kitty.nix")
     kitty.enable = true;
 
     # a modern replacement for ls.
@@ -137,13 +138,16 @@
     # (see config in "xresources.nix")
     # urxvt.enable = true;
 
-    # vim editor (see config in vim.nix)
+    # vim editor
+    # (see config in vim.nix)
     vim.enable = true;
 
-    # vs code (see config in vscode.nix)
+    # vs code
+    # (see config in vscode.nix)
     vscode.enable = true;
 
-    # zsh shell (see config in zsh.nix)
+    # zsh shell 
+    # (see config in zsh.nix)
     zsh.enable = true;
 
   };
