@@ -8,5 +8,11 @@
       yzhang.markdown-all-in-one
       ocamllabs.ocaml-platform
     ];
+    userSettings = {
+      "editor.fontFamily" = "'FiraCode Nerd Font'";
+      "editor.fontLigatures" = true;
+      "editor.fontSize" = 15;
+      "files.autoSave" = "onWindowChange";
+    };
   };
 }

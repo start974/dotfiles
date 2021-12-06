@@ -279,10 +279,11 @@ set termguicolors
 let ayucolor="mirage"
 colorscheme ayu
 set guifont=FiraCode:h12
+let &t_ut=''
 
 " change color coqtail
-hi def CoqtailChecked guibg=DarkMagenta
-hi def CoqtailSent    guibg=DarkBlue
+hi def CoqtailChecked guibg=DarkGreen
+hi def CoqtailSent    guibg=LightGreen
 
 " Disable Ack.vim's mappings on the quickfix and location list windows
 " We use vim-qf mappings instead

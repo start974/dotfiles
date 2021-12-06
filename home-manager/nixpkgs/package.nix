@@ -47,12 +47,22 @@
     thunderbird
 
     # language & tool
+    autoconf
     perl
     python3
     conda
-    coq
     gnumake
+    gcc
     # java (see below)
+    # ocaml (see below opam)
+    # library
+
+    #proover
+    coq
+    why3
+    alt-ergo
+    cvc4
+    z3
   ];
  
 
@@ -132,7 +142,7 @@
 
     # urxvt-unicode terminal emulator.
     # (see config in "xresources.nix")
-    urxvt.enable = true;
+    # urxvt.enable = true;
 
     # vim editor (see config in vim.nix)
     vim.enable = true;
@@ -142,6 +152,7 @@
 
     # zsh shell (see config in zsh.nix)
     zsh.enable = true;
+
   };
 
 }

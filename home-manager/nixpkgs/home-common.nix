@@ -24,6 +24,7 @@
     ./redshift.nix
     ./vim.nix
     ./vscode.nix
+    #./xresources.nix
     ./zsh.nix
   ];
 
