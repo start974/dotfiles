@@ -48,28 +48,21 @@
 
     # language & tool
     autoconf
+    coq
     perl
     python3
-    conda
     gnumake
     gcc
     # java (see below)
     # ocaml (see below opam)
     # library
-
-    #proover
-    coq
-    why3
-    alt-ergo
-    cvc4
-    z3
   ];
  
 
   # programs
   programs = {
     # alcritty a terminal
-    alacritty.enable = true;
+    # alacritty.enable = true;
 
     # autorandr
     autorandr.enable = true;
