@@ -13,6 +13,7 @@
     networkmanagerapplet
     playerctl
     rofi-power-menu
+    cinnamon.nemo
 
     # font
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
@@ -21,6 +22,7 @@
     # unfree
     discord
     betterdiscordctl
+    zoom-us
     spotify
 
     # ide

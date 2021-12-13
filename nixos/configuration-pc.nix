@@ -31,7 +31,12 @@
   swapDevices = [ ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  
+
+  hardware.gkraken.enable = true;
+  environment.systemPackages = with pkgs; [
+    gkraken
+  ];
+
   # auto login
   services.xserver.displayManager.autoLogin = {
     enable = true;

@@ -118,7 +118,8 @@
   # auto upgrade
   system.autoUpgrade = {
     enable = true;
-    channel = https://nixos.org/channels/nixos-21.05;
+    channel = https://nixos.org/channels/nixos-unstable;
+    allowReboot = true;
   };
 
   # This value determines the NixOS release from which the default

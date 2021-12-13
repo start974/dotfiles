@@ -13,6 +13,7 @@
       "editor.fontLigatures" = true;
       "editor.fontSize" = 15;
       "files.autoSave" = "onWindowChange";
+      "workbench.preferredDarkColorTheme" = "Monokay";
     };
   };
 }

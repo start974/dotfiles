@@ -14,8 +14,8 @@
           format = "{icon} {alias}: {used}/{total} ({available} free)";
           unit = "GB";
           interval = 60;
-          warning = 40.0;
-          alert = 20.0;
+          alert = 80.0;
+          warning = 50.0;
         }
         {
           block = "cpu";
