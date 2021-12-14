@@ -112,6 +112,10 @@
         SystemMaxUse=1G
   '';
 
+  # auto garbage collect
+  nix.gc.automatic = true;
+  nix.autoOptimiseStore = true;
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 

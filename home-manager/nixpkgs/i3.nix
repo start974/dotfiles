@@ -79,6 +79,8 @@ in
         "${mod}+Shift+e"        = "exec \"rofi -show p " +
         "-modi p:rofi-power-menu -lines 6 -location 1 -width 20\"";
 
+        # browse file
+        "${mod}+e"              = "exec ${pkgs.cinnamon.nemo}/bin/nemo";
 
         # firefox
         "${mod}+b"              = "exec ${pkgs.firefox}/bin/firefox";
@@ -140,6 +142,16 @@ in
           position = "bottom";
         }
       ];
+      window = {
+        commands = [
+          {
+            command = "floating enable";
+            criteria = {
+              class = "Nemo";
+            };
+          }
+        ];
+      };
       assigns = {
         ${web_workspace}    = [{ class = "Firefox"; instance="Navigator"; }];
         ${chat_workspace}   = [{ class = "discord"; }];
