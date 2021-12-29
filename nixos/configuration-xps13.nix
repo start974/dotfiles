@@ -51,20 +51,10 @@
 
   # lights setings
   programs.light.enable = true;
-  services.actkbd = {
-    enable = true;
-    #bindings = [
-    #  { keys = [ 225 ]; events = [ "key" ]; command =
-    #    "/run/current-system/sw/bin/light -A 5"; }
-    #  { keys = [ 224 ]; events = [ "key" ]; command =
-    #    "/run/current-system/sw/bin/light -U 5"; }
-    #];
-  };
 
   #bluetooth
   hardware.bluetooth.enable = true;
-  
-  nixpkgs.config.allowUnfree = true; 
+
   #finger print
   #services.fprintd = {
   #  enable = true;

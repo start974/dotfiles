@@ -17,6 +17,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/0394af1e-6177-4943-899b-4f86f073feeb";
@@ -26,6 +27,11 @@
   fileSystems."/boot" = {
     device = "/dev/nvme0n1p1";
     fsType = "vfat";
+  };
+
+  fileSystems."/data" = {
+    device = "/dev/sda2";
+    fsType = "ntfs";
   };
 
   swapDevices = [ ];
@@ -46,7 +52,7 @@
   # network
   networking.interfaces = {
     enp1s0.useDHCP = true;
-    wlp2s0.useDHCP = true;
+    #wlp2s0.useDHCP = true;
   };
 }
 

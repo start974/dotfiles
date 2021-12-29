@@ -21,6 +21,7 @@
 
     # unfree
     discord
+    dropbox
     betterdiscordctl
     zoom-us
     spotify
