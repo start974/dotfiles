@@ -59,6 +59,7 @@
       make = "make -j`nproc`";
       rm = "trash-put";
       cat = "bat";
+      wgetclip = "wget $(xsel --output --clipboard)";
       #python = "python3";
       #pip = "python -m pip";
     };

@@ -52,6 +52,7 @@
     # language & tool
     autoconf
     coq
+    why3
     perl
     python3
     gnumake

@@ -154,7 +154,8 @@ in
       };
       assigns = {
         ${web_workspace}    = [{ class = "Firefox"; instance="Navigator"; }];
-        ${chat_workspace}   = [{ class = "discord"; }];
+        ${chat_workspace}   = [{ class = "discord";}
+                               { class = "thunderbird"; } ];
         ${music_workspace}  = [{ class = "Spotify"; }];
       };
       startup = [

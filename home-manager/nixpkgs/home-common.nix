@@ -13,6 +13,10 @@
       EDITOR = "vim";
     };
   };
+
+  # allow user unfree
+  nixpkgs.config.allowUnfree = true;
+
   # import all other modules
   imports = [
     ./package.nix
