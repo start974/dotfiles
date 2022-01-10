@@ -27,6 +27,7 @@
     ./powerline.nix
     ./redshift.nix
     ./vim.nix
+    ./nvim.nix
     ./vscode.nix
     #./xresources.nix
     ./zsh.nix

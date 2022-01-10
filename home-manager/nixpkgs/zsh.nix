@@ -68,6 +68,11 @@
   programs = {
     broot.enableZshIntegration = true;
 
+    direnv = {
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
+
     mcfly = {
       enableZshIntegration = true;
       enableLightTheme = false;

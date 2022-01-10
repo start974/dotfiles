@@ -28,6 +28,7 @@
 
     # ide
     jetbrains.clion
+    jetbrains.pycharm-community
     jetbrains.idea-ultimate
 
     # common line utility
@@ -58,7 +59,8 @@
     gnumake
     gcc
     # java (see below)
-    # ocaml (see below opam)
+    ocaml
+    #(see below opam)
     # library
   ];
  
@@ -76,6 +78,9 @@
 
     # A better way to navigate directories
     broot.enable = true;
+
+    # direnv
+    direnv.enable = true;
 
     # light image viewer
     feh.enable = true;
@@ -145,6 +150,7 @@
     # vim editor
     # (see config in vim.nix)
     vim.enable = true;
+    neovim.enable = true;
 
     # vs code
     # (see config in vscode.nix)
