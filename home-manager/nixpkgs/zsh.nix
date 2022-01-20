@@ -1,4 +1,6 @@
 { pkgs, lib, ... } :
+let clip = "xsel --output --clipboard";
+in
 {
   programs.zsh = {
     enableCompletion = true;
@@ -59,7 +61,8 @@
       make = "make -j`nproc`";
       rm = "trash-put";
       cat = "bat";
-      wgetclip = "wget $(xsel --output --clipboard)";
+      wgetclip = "wget $(${clip})";
+      gcloneclip = "git clone $(${clip})";
       #python = "python3";
       #pip = "python -m pip";
     };

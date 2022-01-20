@@ -42,6 +42,7 @@
 
     # image / video
     imagemagick
+    flameshot
     scrot
     vlc
 
