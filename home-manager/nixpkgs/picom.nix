@@ -1,7 +1,7 @@
 {config, ...}:
 {
   services.picom = {
-    enable = true;
+    enable = false;
     blur = true;
     activeOpacity = "1";
     inactiveOpacity = "0.95";

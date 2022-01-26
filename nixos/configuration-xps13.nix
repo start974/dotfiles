@@ -3,8 +3,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-    (import ./configuration-base.nix { hostName = "nixos-xps13"; })
     <nixos-hardware/dell/xps/13-9310>
+    (import ./configuration-base.nix { hostName = "nixos-xps13"; })
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -29,14 +29,15 @@
     fsType = "ext4";
   };
 
-  fileSystems."/drive/data" = {
-    device = "/dev/disk/by-label/DATA";
-    fsType = "exfat";
-  };
-
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/6C2A-C265";
     fsType = "vfat";
+  };
+
+  fileSystems."/drive/data" = {
+    device = "/dev/disk/by-label/DATA";
+    fsType = "exfat";
+    options = [ "uid=1000" "gid=100" "dmask=007" "fmask=117" ];
   };
 
   swapDevices = [ ];

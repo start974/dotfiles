@@ -54,13 +54,11 @@
     # language & tool
     autoconf
     coq
-    why3
     perl
     python3
     gnumake
     gcc
     # java (see below)
-    ocaml
     #(see below opam)
     # library
   ];
@@ -120,7 +118,7 @@
     mcfly.enable = true;
 
     # opam ocaml package manager
-    opam.enable = true;
+    # opam.enable = true;
 
     # powerline-go 
     powerline-go.enable = true;
