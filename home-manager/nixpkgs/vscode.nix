@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.vscode = {
-    package = pkgs.vscodium;
+    #package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
       dracula-theme.theme-dracula
       vscodevim.vim

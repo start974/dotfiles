@@ -49,15 +49,18 @@
     # document
     evince
     libreoffice
-    thunderbird
+
+    # mail
+    mailspring
+    libsecret
 
     # language & tool
-    autoconf
     coq
     perl
     python3
-    gnumake
-    gcc
+    #autoconf
+    #gnumake
+    #gcc
     # java (see below)
     #(see below opam)
     # library
@@ -112,6 +115,9 @@
 
     # mathplotlib (python library)
     matplotlib.enable = true;
+
+    # man (manual linux)
+    man.enable = true;
 
     # mcfly eplaces your default ctrl-r shell history search with an intelligent
     # (see config in "zsh.nix")

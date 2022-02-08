@@ -33,6 +33,9 @@
     ./zsh.nix
   ];
 
+  # for mailSpring
+  services.gnome-keyring.enable = true;
+
   # enable manual in html
   manual.html.enable = true;
 
