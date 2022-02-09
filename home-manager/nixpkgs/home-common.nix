@@ -23,11 +23,12 @@
 
     ./git.nix
     ./kitty.nix
+    ./nvim.nix
     ./picom.nix
     ./powerline.nix
     ./redshift.nix
+    ./tmux.nix
     ./vim.nix
-    ./nvim.nix
     ./vscode.nix
     #./xresources.nix
     ./zsh.nix

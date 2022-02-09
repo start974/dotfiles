@@ -95,7 +95,8 @@
     git.enable = true;
 
     # htop system monitor
-    htop.enable = true;
+    #htop.enable = true;
+    bottom.enable = true;
 
     # i3status
     # (see config in "i3.nix")

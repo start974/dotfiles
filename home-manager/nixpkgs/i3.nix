@@ -155,12 +155,13 @@ in
       assigns = {
         ${web_workspace}    = [{ class = "Firefox"; instance="Navigator"; }];
         ${chat_workspace}   = [{ class = "discord";}
-                               { class = "thunderbird"; } ];
+                               { class = "Mailspring"; } ];
         ${music_workspace}  = [{ class = "Spotify"; }];
       };
       startup = [
         { command = "firefox"; notification = false; }
         { command = "nm-applet"; }
+        { command = "dropbox"; }
         { command = "feh --bg-fill ${wallpaper}"; }
       ];
     };

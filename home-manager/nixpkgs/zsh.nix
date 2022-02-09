@@ -1,12 +1,23 @@
 { pkgs, lib, ... } :
-let clip = "xsel --output --clipboard";
+let
+  clip = "xsel --output --clipboard";
+  btm = "${pkgs.bottom}/bin/btm";
 in
 {
   programs.zsh = {
     enableCompletion = true;
     enableSyntaxHighlighting = true;
     enableAutosuggestions = true;
+    enableVteIntegration = true;
     autocd = true;
+    history = {
+      save = 50000;
+      size = 50000;
+    };
+    initExtra = ''
+    # lauch tmux
+      [ -z "$TMUX"  ] && { exec tmux new-session && exit;}
+    '';
     #defaultKeymap = "vicmd";
     localVariables = {
    # # Override highlighter colors
@@ -63,6 +74,7 @@ in
       cat = "bat";
       wgetclip = "wget $(${clip})";
       gcloneclip = "git clone $(${clip})";
+      top = "${btm}";
       #python = "python3";
       #pip = "python -m pip";
     };
