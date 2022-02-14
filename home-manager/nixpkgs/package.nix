@@ -10,7 +10,6 @@
     arandr
     barrier
     networkmanager_dmenu
-    networkmanagerapplet
     playerctl
     rofi-power-menu
     cinnamon.nemo

@@ -160,7 +160,6 @@ in
       };
       startup = [
         { command = "firefox"; notification = false; }
-        { command = "nm-applet"; }
         { command = "dropbox"; }
         { command = "feh --bg-fill ${wallpaper}"; }
       ];

@@ -28,6 +28,7 @@
     inherit hostName;
     networkmanager.enable = true;
   };
+  programs.nm-applet.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -71,6 +72,7 @@
   sound.enable = true;
   hardware.pulseaudio = {
     enable = true;
+    package = pkgs.pulseaudioFull;
     support32Bit = true;
   };
 
@@ -101,7 +103,6 @@
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  # programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -112,19 +113,8 @@
         SystemMaxUse=1G
   '';
 
-  # auto garbage collect
-  nix.gc.automatic = true;
-  nix.autoOptimiseStore = true;
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # auto upgrade
-  system.autoUpgrade = {
-    enable = true;
-    channel = https://nixos.org/channels/nixos-unstable;
-    allowReboot = true;
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

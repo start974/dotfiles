@@ -49,10 +49,5 @@
     user = "jdam";
   };
 
-  # network
-  networking.interfaces = {
-    enp1s0.useDHCP = true;
-    #wlp2s0.useDHCP = true;
-  };
 }
 
