@@ -45,7 +45,7 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   # network
-  networking.interfaces.wlp0s20f3.useDHCP = true;
+  #networking.interfaces.wlp0s20f3.useDHCP = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
