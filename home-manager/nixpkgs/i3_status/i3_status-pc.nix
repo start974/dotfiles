@@ -18,6 +18,17 @@
           warning = 50.0;
         }
         {
+          block = "disk_space";
+          path = "/data";
+          alias = "data";
+          info_type = "used";
+          format = "{alias}: {available} free";
+          unit = "GB";
+          interval = 2 * 60;
+          warning = 30.0;
+          alert = 10.0;
+        }
+        {
           block = "cpu";
           interval = 1;
           format = "{barchart}{utilization} {frequency}";
