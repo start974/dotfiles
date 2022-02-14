@@ -80,7 +80,13 @@
   users.users."${user.name}" = {
     isNormalUser = true;
     description = user.description;
-    extraGroups = [ "wheel" "networkmannager" "audio" "video"];
+    extraGroups = [
+      "wheel"
+      "networkmannager"
+      "audio"
+      "video"
+      "docker"
+    ];
   };
 
   # zsh default shell
@@ -112,6 +118,12 @@
   services.journald.extraConfig = ''
         SystemMaxUse=1G
   '';
+
+  # docker
+  virtualisation.docker = {
+    enable = true;
+    autoPrune.enable = true;
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

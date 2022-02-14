@@ -16,10 +16,10 @@ let
   exec_cmd = "exec --no-startup-id";
   mode_default_str = "mode default";
 in
-{
-  imports = [
-    (import i3_status_nix { inherit i3bar_name; })
-  ];
+  {
+    imports = [
+      (import i3_status_nix { inherit i3bar_name; })
+    ];
 
   # rofi
   programs.rofi = {
@@ -45,35 +45,28 @@ in
     };
   };
 
-  # X session
-  xsession = {
-    #numlock.enable = enable;
-    profileExtra = ''
-      eval $(${pkgs.gnome3.gnome-keyring}/bin/gnome-keyring-daemon --daemonize --components=ssh,secrets)
-      export SSH_AUTH_SOCK
-    '';
-    # i3 gestion
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
+  # i3 gestion
+  xsession.windowManager.i3 = {
+    enable = true;
+    package = pkgs.i3-gaps;
 
-      config = {
-        modifier = mod;
-        terminal = "kitty";
-        defaultWorkspace = "workspace number 2";
+    config = {
+      modifier = mod;
+      terminal = "kitty";
+      defaultWorkspace = "workspace number 2";
 
-        fonts = {
-          names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
-          size = 13.0;
-        };
+      fonts = {
+        names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
+        size = 13.0;
+      };
 
-        gaps = {
-          smartGaps = true;
-          smartBorders = "on";
-          inner = 5;
-        };
+      gaps = {
+        smartGaps = true;
+        smartBorders = "on";
+        inner = 5;
+      };
 
-        keybindings = lib.mkOptionDefault {
+      keybindings = lib.mkOptionDefault {
         # workspaces
         "${mod}+1"              = "workspace ${web_workspace}";
         "${mod}+Shift+1"        = "move container to workspace ${web_workspace}";
@@ -169,10 +162,10 @@ in
 
       startup = [
         { command = "firefox"; notification = false; }
-        { command = "dropbox"; }
+        #{ command = "dropbox"; }
+        { command = "gnome-keyring-daemon --daemonize"; }
         { command = "feh --bg-fill ${wallpaper}"; }
       ];
     };
   };
-};
-        }
+}
