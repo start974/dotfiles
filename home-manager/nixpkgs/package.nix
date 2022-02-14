@@ -135,7 +135,11 @@
     rofi.enable = true;
 
     # ssh client
-    ssh.enable = true;
+    ssh = {
+      enable = true;
+      forwardAgent = true;
+      controlPersist = "1h";
+    };
 
     # task Warrior (todo list)
     taskwarrior.enable = true;
@@ -156,7 +160,7 @@
     # vim editor
     # (see config in vim.nix)
     vim.enable = true;
-    neovim.enable = true;
+    #neovim.enable = true;
 
     # vs code
     # (see config in vscode.nix)
