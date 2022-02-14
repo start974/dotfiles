@@ -52,6 +52,7 @@
     # mail
     mailspring
     libsecret
+    gnome.gnome-keyring
 
     # language & tool
     coq

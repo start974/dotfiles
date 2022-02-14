@@ -16,12 +16,12 @@ let
   exec_cmd = "exec --no-startup-id";
   mode_default_str = "mode default";
 in
-  {
-    imports = [
-      (import i3_status_nix { inherit i3bar_name; })
-    ];
+{
+  imports = [
+    (import i3_status_nix { inherit i3bar_name; })
+  ];
 
-  # rofi 
+  # rofi
   programs.rofi = {
     location = "top";
     theme = "glue_pro_blue";
@@ -32,7 +32,7 @@ in
       rofi-power-menu
     ];
   };
-  
+
   # set screen locker to i3 lock
   services.screen-locker = {
     enable = true;
@@ -45,24 +45,35 @@ in
     };
   };
 
-  # i3 gestion
-  xsession.windowManager.i3 = {
-    enable = true;
-    package = pkgs.i3-gaps;
-    config = {
-      modifier = mod;
-      terminal = "kitty";
-      defaultWorkspace = "workspace number 2";
-      fonts = {
-        names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
-        size = 13.0;
-      };
-      gaps = {
-        smartGaps = true;
-        smartBorders = "on";
-        inner = 5;
-      };
-      keybindings = lib.mkOptionDefault {
+  # X session
+  xsession = {
+    #numlock.enable = enable;
+    profileExtra = ''
+      eval $(${pkgs.gnome3.gnome-keyring}/bin/gnome-keyring-daemon --daemonize --components=ssh,secrets)
+      export SSH_AUTH_SOCK
+    '';
+    # i3 gestion
+    windowManager.i3 = {
+      enable = true;
+      package = pkgs.i3-gaps;
+
+      config = {
+        modifier = mod;
+        terminal = "kitty";
+        defaultWorkspace = "workspace number 2";
+
+        fonts = {
+          names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
+          size = 13.0;
+        };
+
+        gaps = {
+          smartGaps = true;
+          smartBorders = "on";
+          inner = 5;
+        };
+
+        keybindings = lib.mkOptionDefault {
         # workspaces
         "${mod}+1"              = "workspace ${web_workspace}";
         "${mod}+Shift+1"        = "move container to workspace ${web_workspace}";
@@ -88,7 +99,7 @@ in
 
         # d-menu
         "${mod}+d"              = "${exec_cmd} \"rofi -modi window,drun,run,calc,emoji " +
-          "-show run -sidebar-mode -show-icons -lines 7\"";
+        "-show run -sidebar-mode -show-icons -lines 7\"";
         "${mod}+n"              = "exec ${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
 
         #sound
@@ -107,57 +118,55 @@ in
         "XF86AudioPrev"         = "exec playerctl previous";
 
       };
-      bars = [
+
+      bars = [{
+        fonts = {
+          names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
+          size = 10.0;
+        };
+        colors = {
+          separator = "#666666";
+          background = "#223344";
+          statusline = "#dddddd";
+          focusedWorkspace = {
+            background = "#0088CC"; 
+            border = "#0088CC";
+            text = "#ffffff";
+          };
+          activeWorkspace = {
+            background = "#333333"; 
+            border ="#333333";
+            text = "#ffffff";
+          };
+          inactiveWorkspace = {
+            background = "#333333"; 
+            border = "#333333";
+            text = "#888888";
+          };
+          urgentWorkspace = {
+            background = "#2f343a";
+            border = "#900000";
+            text = "#ffffff";
+          };
+        };
+        statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${i3bar_file}";
+        position = "bottom";
+      }];
+
+      window.commands = [
         {
-          fonts = {
-            names = [ "DejaVu Sans Mono" "FontAwesome5Free" ];
-            size = 10.0;
-          };
-          colors = {
-            separator = "#666666";
-            background = "#223344";
-            statusline = "#dddddd";
-            focusedWorkspace = {
-              background = "#0088CC"; 
-              border = "#0088CC";
-              text = "#ffffff";
-            };
-            activeWorkspace = {
-              background = "#333333"; 
-              border ="#333333";
-              text = "#ffffff";
-            };
-            inactiveWorkspace = {
-              background = "#333333"; 
-              border = "#333333";
-              text = "#888888";
-            };
-            urgentWorkspace = {
-              background = "#2f343a";
-              border = "#900000";
-              text = "#ffffff";
-            };
-          };
-          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${i3bar_file}";
-          position = "bottom";
+          command = "floating enable";
+          criteria = { class = "Nemo"; };
         }
       ];
-      window = {
-        commands = [
-          {
-            command = "floating enable";
-            criteria = {
-              class = "Nemo";
-            };
-          }
-        ];
-      };
+
       assigns = {
         ${web_workspace}    = [{ class = "Firefox"; instance="Navigator"; }];
         ${chat_workspace}   = [{ class = "discord";}
-                               { class = "Mailspring"; } ];
+        { class = "Mailspring"; } ];
         ${music_workspace}  = [{ class = "Spotify"; }];
       };
+
       startup = [
         { command = "firefox"; notification = false; }
         { command = "dropbox"; }
@@ -165,4 +174,5 @@ in
       ];
     };
   };
-}
+};
+        }
