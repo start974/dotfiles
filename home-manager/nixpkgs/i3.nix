@@ -9,7 +9,6 @@ let
   i3bar_file = "~/.config/i3status-rust/config-${i3bar_name}.toml";
   mod = "Mod4";
   amixer = "${pkgs.alsaUtils}/sbin/amixer";
-  i3_status_nix = ./. + "/i3_status/i3_status-${name_pc}.nix";
   web_workspace = "1: web";
   chat_workspace = "5: chat";
   music_workspace = "6: music";
@@ -18,7 +17,7 @@ let
 in
   {
     imports = [
-      (import i3_status_nix { inherit i3bar_name; })
+      (import ./i3_status { inherit i3bar_name name_pc; })
     ];
 
   # rofi

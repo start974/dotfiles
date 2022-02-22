@@ -7,18 +7,16 @@
     terminal = "screen-256color";
     plugins = with pkgs.tmuxPlugins; [
       {
-        plugin = dracula;
+        plugin = continuum;
         extraConfig = ''
-          set -g @dracula-show-powerline true
-          set -g @dracula-plugins "cpu-usage ram-usage weather"
-          set -g @dracula-show-flags true
-          set -g @dracula-show-left-icon session
-          set -g @dracula-show-fahrenheit false
-          set -g @dracula-refresh-rate 10
+          set -g @continuum-boot 'on'
         '';
       }
       {
-        plugin = continuum;
+        plugin = power-theme;
+        extraConfig = ''
+          set -g @tmux_power_theme 'moon'
+        '';
       }
     ];
     extraConfig = ''
@@ -31,7 +29,7 @@
       bind -n WheelDownPane select-pane -t= \; send-keys -M
 
       # relaoad config
-      # bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded tmux config"
+      bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded tmux config"
 
       # new window / split in current path
       bind c new-window -c "#{pane_current_path}"
