@@ -1,6 +1,7 @@
 #!/bin/sh -xe
-icon="$(realpath $(dirname $0))/lock_icon.png"
 
+current="$(realpath $(dirname $0))"
+icon="${current}/lock_icon.png"
 # create a temp file
 img=$(mktemp /tmp/XXXXXXXXXX.png)
 
@@ -8,13 +9,17 @@ img=$(mktemp /tmp/XXXXXXXXXX.png)
 import -window root $img
 
 # blur the screenshot (slow!)
-convert $img -blur 5,5 $img
+#convert $img -blur 5,5 $img
 
 # Add the lock image
 convert $img $icon -gravity center -composite $img
 
 # Run i3lock with custom background
-i3lock -i $img
+betterlockscreen -u $img --fx blur --blur 0.9
+betterlockscreen -l blur
 
 # Remove the tmp file
 rm $img
+
+# re-add wallpaper to cache
+betterlockscreen -w dim

@@ -34,15 +34,9 @@ in
   };
 
   # set screen locker to i3 lock
-  services.screen-locker = {
+  services.betterlockscreen = {
     enable = true;
     inactiveInterval = 3;
-    lockCmd = "${i3lock_cmd}";
-    xautolock = {
-      enable = true;
-      detectSleep = true;
-      package = pkgs.xautolock;
-    };
   };
 
   # i3 gestion
