@@ -6,4 +6,5 @@
       name_pc = "pc";
     })
   ];
+  services.picom.enable = true;
 }

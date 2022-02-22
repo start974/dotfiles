@@ -1,10 +1,10 @@
 # this file contains all package to install
 
 { pkgs, ... }:
-
 {
   fonts.fontconfig.enable = true;
   nixpkgs.config.allowUnfree = true;
+
   home.packages = with pkgs; [
     # app
     arandr
@@ -21,7 +21,6 @@
     # unfree
     discord
     dropbox
-    betterdiscordctl
     zoom-us
     spotify
 
@@ -57,7 +56,7 @@
     # language & tool
     coq
     perl
-    python3
+    #python3
     #autoconf
     #gnumake
     #gcc
@@ -65,7 +64,16 @@
     #(see below opam)
     # library
   ];
- 
+
+  #overlays
+  nixpkgs.overlays = [(self: super: {
+      discord = super.discord.overrideAttrs (_ :{ 
+        src = builtins.fetchTarball 
+          https://discord.com/api/download?platform=linux&format=tar.gz;
+      });
+    }
+  )];
+
   # programs
   programs = {
     # alcritty a terminal
@@ -115,7 +123,7 @@
     lsd.enableAliases = true;
 
     # mathplotlib (python library)
-    matplotlib.enable = true;
+    # matplotlib.enable = true;
 
     # man (manual linux)
     man.enable = true;

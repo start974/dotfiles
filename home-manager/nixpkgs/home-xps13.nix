@@ -6,4 +6,6 @@
       name_pc = "xps13";
     })
   ];
+  # desactive picom
+  services.picom.enable = false;
 }
