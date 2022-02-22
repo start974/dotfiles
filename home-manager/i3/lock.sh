@@ -2,7 +2,7 @@
 
 current="$(realpath $(dirname $0))"
 icon="${current}/lock_icon.png"
-default="${current}/wallpaper/wallpaper1.png"
+default="${current}/wallpaper/"
 # create a temp file
 img=$(mktemp /tmp/XXXXXXXXXX.png)
 
