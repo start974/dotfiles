@@ -32,10 +32,10 @@ in
     ];
   };
 
-  # set screen locker to i3 lock
+  # config screen locker
   services.betterlockscreen = {
     enable = true;
-    inactiveInterval = 3;
+    inactiveInterval = 10;
   };
 
   # i3 gestion

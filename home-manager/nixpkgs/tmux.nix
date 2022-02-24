@@ -6,12 +6,12 @@
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "screen-256color";
     plugins = with pkgs.tmuxPlugins; [
-      {
-        plugin = continuum;
-        extraConfig = ''
-          set -g @continuum-boot 'on'
-        '';
-      }
+      #{
+      #  plugin = continuum;
+      #  extraConfig = ''
+      #    set -g @continuum-boot 'on'
+      #  '';
+      #}
       {
         plugin = power-theme;
         extraConfig = ''

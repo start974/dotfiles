@@ -3,7 +3,7 @@
   name_pc,
 }:
 let
-  i3_block_nix = ./. + "/blocks-${name_pc}.nix";
+  i3_block_nix = ./. + "/${name_pc}.nix";
 in
 { pkgs, ... }:
 {
