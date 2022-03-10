@@ -12,6 +12,7 @@
       "editor.fontFamily" = "'FiraCode Nerd Font'";
       "editor.fontLigatures" = true;
       "editor.fontSize" = 15;
+      "terminal.intergated.fontFamily" = "'FiraCode Nerd Font'";
       "files.autoSave" = "onWindowChange";
       "workbench.preferredDarkColorTheme" = "Monokay";
     };

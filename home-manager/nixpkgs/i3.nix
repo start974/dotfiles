@@ -35,7 +35,7 @@ in
   # config screen locker
   services.betterlockscreen = {
     enable = true;
-    inactiveInterval = 10;
+    inactiveInterval = 20;
   };
 
   # i3 gestion
@@ -77,7 +77,7 @@ in
         "-modi p:rofi-power-menu -lines 6 -location 1 -width 20\"";
 
         # browse file
-        "${mod}+e"              = "exec ${pkgs.cinnamon.nemo}/bin/nemo";
+        "${mod}+e"              = "exec ${pkgs.xfce.thunar}/bin/thunar";
 
         # firefox
         "${mod}+b"              = "exec ${pkgs.firefox}/bin/firefox";
@@ -142,20 +142,20 @@ in
       window.commands = [
         {
           command = "floating enable";
-          criteria = { class = "Nemo"; };
+          criteria = { class = "Thunar"; };
         }
       ];
 
       assigns = {
         ${web_workspace}    = [{ class = "Firefox"; instance="Navigator"; }];
-        ${chat_workspace}   = [{ class = "discord";}
-        { class = "Mailspring"; } ];
+        ${chat_workspace}   = [{ class = "discord"; }
+                               { class = "Mailspring"; } ];
         ${music_workspace}  = [{ class = "Spotify"; }];
       };
 
       startup = [
         { command = "firefox"; notification = false; }
-        #{ command = "dropbox"; }
+        { command = "dropbox"; }
         { command = "gnome-keyring-daemon --daemonize"; }
         { command = "feh --bg-fill ${wallpaper}"; }
       ];

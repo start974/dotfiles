@@ -12,7 +12,7 @@
     networkmanager_dmenu
     playerctl
     rofi-power-menu
-    cinnamon.nemo
+    xfce.thunar
 
     # font
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
