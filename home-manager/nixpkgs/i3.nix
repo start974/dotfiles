@@ -71,13 +71,16 @@ in
         "${mod}+Shift+6"        = "move container to workspace ${music_workspace}";
 
         # lock
-        "Control+${mod}+l"      = "exec ${i3lock_cmd}";
+        "${mod}+Shift+x"        = "exec ${i3lock_cmd}";
         "XF86Lock"              = "exec ${i3lock_cmd}";
         "${mod}+Shift+e"        = "exec \"rofi -show p " +
         "-modi p:rofi-power-menu -lines 6 -location 1 -width 20\"";
 
         # browse file
-        "${mod}+e"              = "exec ${pkgs.xfce.thunar}/bin/thunar";
+        "${mod}+f"              = "exec ${pkgs.xfce.thunar}/bin/thunar";
+
+        # screen shot
+        "${mod}+c"              = "exec ${pkgs.flameshot}/bin/flameshot gui";
 
         # firefox
         "${mod}+b"              = "exec ${pkgs.firefox}/bin/firefox";
@@ -149,8 +152,10 @@ in
       assigns = {
         ${web_workspace}    = [{ class = "Firefox"; instance="Navigator"; }];
         ${chat_workspace}   = [{ class = "discord"; }
-                               { class = "Mailspring"; } ];
-        ${music_workspace}  = [{ class = "spotify"; }];
+                               { class = "Mailspring"; } 
+                               { class = "Mattermost"; } 
+                              ];
+        ${music_workspace}  = [{ class = "Spotify"; }];
       };
 
       startup = [
