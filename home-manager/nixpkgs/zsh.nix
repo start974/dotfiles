@@ -2,6 +2,7 @@
 let
   clip = "xsel --output --clipboard";
   btm = "${pkgs.bottom}/bin/btm";
+  dl_dir = "$HOME/Downloads";
 in
 {
   programs.zsh = {
@@ -40,13 +41,12 @@ in
       theme = "fino"; #"bira";
       plugins = [
         "colored-man-pages"
-        "colorize"
         "common-aliases"
         "copyfile"
         "docker"
         "extract"
         "git"
-        "pip"
+        "gitignore"
         "pipenv"
         "python"
       ];
@@ -63,6 +63,11 @@ in
         };
       }
     ];
+    dirHashes = {
+      "dl" = "${dl_dir}";
+      "db" = "$HOME/Dropbox";
+      "dot" = "$HOME/dotfiles";
+    };
     shellAliases = {
       df = "df -h";
       config = "cd ~/dotfiles/home-manager/nixpkgs/ \\
@@ -75,8 +80,10 @@ in
       wgetclip = "wget $(${clip})";
       gcloneclip = "git clone $(${clip})";
       top = "${btm}";
-      #python = "python3";
-      #pip = "python -m pip";
+      cdtmp = "cd $(mktemp -d)";
+
+      # sufflix alias
+      "-s pdf" = "evince";
     };
   };
 

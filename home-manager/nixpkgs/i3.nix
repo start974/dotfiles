@@ -4,7 +4,7 @@
 }:
 { pkgs, lib, config, ... }:
 let
-  i3lock_cmd = "${../i3}/lock.sh";
+  i3lock_cmd = "${pkgs.betterlockscreen}/bin/betterlockscreen -l";
   wallpaper = "${../i3/wallpaper/wallpaper1.jpg}";
   i3bar_file = "~/.config/i3status-rust/config-${i3bar_name}.toml";
   mod = "Mod4";
@@ -150,7 +150,7 @@ in
         ${web_workspace}    = [{ class = "Firefox"; instance="Navigator"; }];
         ${chat_workspace}   = [{ class = "discord"; }
                                { class = "Mailspring"; } ];
-        ${music_workspace}  = [{ class = "Spotify"; }];
+        ${music_workspace}  = [{ class = "spotify"; }];
       };
 
       startup = [

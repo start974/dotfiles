@@ -18,10 +18,18 @@
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     font-awesome
 
-    # unfree
+    # message
     discord
-    dropbox
+    mattermost-desktop
     zoom-us
+    dropbox
+
+    # mail
+    mailspring
+    libsecret
+    gnome.gnome-keyring
+
+    #music
     spotify
 
     # ide
@@ -48,15 +56,11 @@
     evince
     libreoffice
 
-    # mail
-    mailspring
-    libsecret
-    gnome.gnome-keyring
 
     # language & tool
     coq
     perl
-    #python3
+    #python310
     #autoconf
     #gnumake
     #gcc

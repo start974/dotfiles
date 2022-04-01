@@ -29,7 +29,7 @@
     ./redshift.nix
     ./tmux.nix
     ./vim.nix
-    ./vscode.nix
+    #./vscode.nix
     #./xresources.nix
     ./zsh.nix
   ];
