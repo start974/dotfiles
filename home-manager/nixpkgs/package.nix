@@ -130,7 +130,7 @@
     # matplotlib.enable = true;
 
     # man (manual linux)
-    man.enable = true;
+    # man.enable = true;
 
     # mcfly eplaces your default ctrl-r shell history search with an intelligent
     # (see config in "zsh.nix")
@@ -164,6 +164,9 @@
 
     # tmux
     tmux.enable = true;
+
+    # tldr write in rust similar to man page
+    tealdeer.enable = true;
 
     # urxvt-unicode terminal emulator.
     # (see config in "xresources.nix")

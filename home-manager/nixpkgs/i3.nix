@@ -77,7 +77,7 @@ in
         "-modi p:rofi-power-menu -lines 6 -location 1 -width 20\"";
 
         # browse file
-        "${mod}+f"              = "exec ${pkgs.xfce.thunar}/bin/thunar";
+        "${mod}+x"              = "exec ${pkgs.xfce.thunar}/bin/thunar";
 
         # screen shot
         "${mod}+c"              = "exec ${pkgs.flameshot}/bin/flameshot gui";

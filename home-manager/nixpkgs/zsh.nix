@@ -3,6 +3,7 @@ let
   clip = "xsel --output --clipboard";
   btm = "${pkgs.bottom}/bin/btm";
   dl_dir = "$HOME/Downloads";
+  exclude_dir = ".git,.gitlab,.idea,.vscode";
 in
 {
   programs.zsh = {
@@ -81,9 +82,12 @@ in
       gcloneclip = "git clone $(${clip})";
       top = "${btm}";
       cdtmp = "cd $(mktemp -d)";
+      rgrep = "grep -Rin --color=auto --exclude-dir={${exclude_dir}}";
 
       # sufflix alias
       "-s pdf" = "evince";
+      "-s html" = "firefox";
+      "-s py" = "python";
     };
   };
 
