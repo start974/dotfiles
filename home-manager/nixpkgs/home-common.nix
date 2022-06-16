@@ -49,5 +49,5 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "22.05";
-  home.enableNixpkgsReleaseCheck = false;
+  home.enableNixpkgsReleaseCheck = true;
 }

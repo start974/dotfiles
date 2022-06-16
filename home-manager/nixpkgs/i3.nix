@@ -4,16 +4,26 @@
 }:
 { pkgs, lib, config, ... }:
 let
-  i3lock_cmd = "${pkgs.betterlockscreen}/bin/betterlockscreen -l";
   wallpaper = "${../i3/wallpaper/wallpaper1.jpg}";
   i3bar_file = "~/.config/i3status-rust/config-${i3bar_name}.toml";
   mod = "Mod4";
-  amixer = "${pkgs.alsaUtils}/sbin/amixer";
-  web_workspace = "1: web";
-  chat_workspace = "5: chat";
-  music_workspace = "6: music";
   exec_cmd = "exec --no-startup-id";
   mode_default_str = "mode default";
+  terminal = "kitty";
+  workspace = {
+    web = "1: web";
+    chat = "5: chat";
+    music = "6: music";
+  };
+  bin = {
+    amixer = "${pkgs.alsaUtils}/sbin/amixer";
+    betterlockscreen = "${pkgs.betterlockscreen}/bin/betterlockscreen";
+    firefox = "${pkgs.firefox}/bin/firefox";
+    flameshot = "${pkgs.flameshot}/bin/flameshot";
+    nm_dmenu ="${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
+    thunar = "${pkgs.xfce.thunar}/bin/thunar";
+  };
+  i3lock_cmd = "${bin.betterlockscreen} -l";
 in
   {
     imports = [
@@ -45,7 +55,7 @@ in
 
     config = {
       modifier = mod;
-      terminal = "kitty";
+      inherit terminal;
       defaultWorkspace = "workspace number 2";
 
       fonts = {
@@ -61,14 +71,14 @@ in
 
       keybindings = lib.mkOptionDefault {
         # workspaces
-        "${mod}+1"              = "workspace ${web_workspace}";
-        "${mod}+Shift+1"        = "move container to workspace ${web_workspace}";
+        "${mod}+1"              = "workspace ${workspace.web}";
+        "${mod}+Shift+1"        = "move container to workspace ${workspace.web}";
 
-        "${mod}+5"              = "workspace ${chat_workspace}";
-        "${mod}+Shift+5"        = "move container to workspace ${chat_workspace}";
+        "${mod}+5"              = "workspace ${workspace.chat}";
+        "${mod}+Shift+5"        = "move container to workspace ${workspace.chat}";
 
-        "${mod}+6"              = "workspace ${music_workspace}";
-        "${mod}+Shift+6"        = "move container to workspace ${music_workspace}";
+        "${mod}+6"              = "workspace ${workspace.music}";
+        "${mod}+Shift+6"        = "move container to workspace ${workspace.music}";
 
         # lock
         "${mod}+Shift+x"        = "exec ${i3lock_cmd}";
@@ -77,24 +87,24 @@ in
         "-modi p:rofi-power-menu -lines 6 -location 1 -width 20\"";
 
         # browse file
-        "${mod}+x"              = "exec ${pkgs.xfce.thunar}/bin/thunar";
+        "${mod}+x"              = "exec ${bin.thunar}";
 
         # screen shot
-        "${mod}+c"              = "exec ${pkgs.flameshot}/bin/flameshot gui";
+        "${mod}+c"              = "exec ${bin.flameshot} gui";
 
         # firefox
-        "${mod}+b"              = "exec ${pkgs.firefox}/bin/firefox";
-        "XF86HomePage"          = "exec ${pkgs.firefox}/bin/firefox";
+        "${mod}+b"              = "exec ${bin.firefox}";
+        "XF86HomePage"          = "exec ${bin.firefox}";
 
         # d-menu
         "${mod}+d"              = "${exec_cmd} \"rofi -modi window,drun,run,calc,emoji " +
         "-show run -sidebar-mode -show-icons -lines 7\"";
-        "${mod}+n"              = "exec ${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
+        "${mod}+n"              = "exec ${bin.nm_dmenu}";
 
         #sound
-        "XF86AudioRaiseVolume"  = "exec ${amixer} -q sset Master 5%+ unmute";
-        "XF86AudioLowerVolume"  = "exec ${amixer} -q sset Master 5%- unmute";
-        "XF86AudioMute"         = "exec ${amixer} -q sset Master toggle";
+        "XF86AudioRaiseVolume"  = "exec ${bin.amixer} -q sset Master 5%+ unmute";
+        "XF86AudioLowerVolume"  = "exec ${bin.amixer} -q sset Master 5%- unmute";
+        "XF86AudioMute"         = "exec ${bin.amixer} -q sset Master toggle";
 
         # light
         "XF86MonBrightnessUp"   = "exec light -A 5%";
@@ -150,12 +160,12 @@ in
       ];
 
       assigns = {
-        ${web_workspace}    = [{ class = "Firefox"; instance="Navigator"; }];
-        ${chat_workspace}   = [{ class = "discord"; }
+        ${workspace.web}    = [{ class = "Firefox"; instance="Navigator"; }];
+        ${workspace.chat}   = [{ class = "discord"; }
                                { class = "Mailspring"; } 
                                { class = "Mattermost"; } 
                               ];
-        ${music_workspace}  = [{ class = "Spotify"; }];
+        ${workspace.music}  = [{ class = "Spotify"; }];
       };
 
       startup = [

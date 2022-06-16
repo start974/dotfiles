@@ -8,7 +8,10 @@
     };
     # https://sw.kovidgoyal.net/kitty/conf/
     settings = {
-      font_feature = "Fira Code Bold Nerd Font Complete";
+      # font 
+      bold_font = "auto";
+      italic_font = "auto";
+      bold_italic_font = "auto";
 
       #cusor color
       cursor = "#7a5Eae";
@@ -18,7 +21,7 @@
       #color scheme
       foreground = "#ebdef0";
       background = "#151515";
-      background_opacity = "0.95";
+      #background_opacity = "0.95";
 
       # Black / grey
       color0  = "#000000";
@@ -55,8 +58,15 @@
       #bell
       enable_audio_bell = false;
       window_alert_on_bell = false;
-    
+
+      #tab bar
+      tab_bar_style = "powerline";
+      tab_powerline_style = "slanted";
+
+      # other
       editor = "vim";
+      shell = "zsh";
+      confirm_os_window_close = 0;
     };
 
   };
