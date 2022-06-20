@@ -54,7 +54,7 @@ Plug 'mileszs/ack.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ayu-theme/ayu-vim'
+Plug 'sickill/vim-monokai'
 
 " Filetype specific plugins
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -171,7 +171,7 @@ set textwidth=79
 set completeopt=longest,menuone
 
 " Highlight current line
-set cursorline
+" set cursorline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Search options
@@ -275,11 +275,8 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 " Feel free to switch to another colorscheme
-set termguicolors
-let ayucolor="mirage"
-colorscheme ayu
+colorscheme monokai
 set guifont=FiraCode:h12
-let &t_ut=''
 
 " change color coqtail
 hi def CoqtailChecked guibg=DarkGreen

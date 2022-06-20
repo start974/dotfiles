@@ -1,6 +1,9 @@
 # this file contains all package to install
 
 { pkgs, ... }:
+let
+  mailspring_version = "1.10.3";
+in
 {
   fonts.fontconfig.enable = true;
   nixpkgs.config.allowUnfree = true;
@@ -70,13 +73,23 @@
   ];
 
   #overlays
-  nixpkgs.overlays = [(self: super: {
-      discord = super.discord.overrideAttrs (_ :{ 
-        src = builtins.fetchTarball 
+  nixpkgs.overlays = [
+    (self: super: {
+      discord = super.discord.overrideAttrs (_: {
+        src = builtins.fetchTarball
           https://discord.com/api/download?platform=linux&format=tar.gz;
       });
+      mailspring = super.mailspring.overrideAttrs (_: {
+        version = mailspring_version;
+        src = builtins.fetchurl {
+          url =
+            "https://github.com/Foundry376/Mailspring/releases/download/${mailspring_version}/mailspring-${mailspring_version}-amd64.deb";
+          sha256 = "sha256-+H2KeaRBApveUG6Vz+Z8LWpmNpZ4lwyeX1LK0AKx/bw=";
+        };
+      });
     }
-  )];
+    )
+  ];
 
   # programs
   programs = {

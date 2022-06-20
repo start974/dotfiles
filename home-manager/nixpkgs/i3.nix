@@ -160,7 +160,7 @@ in
       ];
 
       assigns = {
-        ${workspace.web}    = [{ class = "Firefox"; instance="Navigator"; }];
+        ${workspace.web}    = [{ class = "firefox"; instance="Navigator"; }];
         ${workspace.chat}   = [{ class = "discord"; }
                                { class = "Mailspring"; } 
                                { class = "Mattermost"; } 

@@ -83,6 +83,7 @@ in
       top = "${btm}";
       cdtmp = "cd $(mktemp -d)";
       rgrep = "grep -Rin --color=auto --exclude-dir={${exclude_dir}}";
+      pathln = "echo $PATH | tr ';' '\n'";
 
       # sufflix alias
       "-s pdf" = "evince";
