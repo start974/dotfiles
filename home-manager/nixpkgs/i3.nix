@@ -20,10 +20,16 @@ let
     betterlockscreen = "${pkgs.betterlockscreen}/bin/betterlockscreen";
     firefox = "${pkgs.firefox}/bin/firefox";
     flameshot = "${pkgs.flameshot}/bin/flameshot";
+    i3status_rust = "${pkgs.i3status-rust}/bin/i3status-rs";
     nm_dmenu ="${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
+    rofi = "${pkgs.rofi}/bin/rofi";
     thunar = "${pkgs.xfce.thunar}/bin/thunar";
   };
   i3lock_cmd = "${bin.betterlockscreen} -l";
+  power_menu = "${bin.rofi} -show p -modi p:rofi-power-menu " +
+  "-lines 6 -location 1 -width 20";
+  d_menu     = "${bin.rofi} -modi window,drun,run " +
+  "-show run -sidebar-mode -show-icons -lines 7";
 in
   {
     imports = [
@@ -81,13 +87,11 @@ in
         "${mod}+Shift+6"        = "move container to workspace ${workspace.music}";
 
         # lock
-        "${mod}+Shift+x"        = "exec ${i3lock_cmd}";
+        "${mod}+Shift+l"        = "exec ${i3lock_cmd}";
         "XF86Lock"              = "exec ${i3lock_cmd}";
-        "${mod}+Shift+e"        = "exec \"rofi -show p " +
-        "-modi p:rofi-power-menu -lines 6 -location 1 -width 20\"";
 
         # browse file
-        "${mod}+x"              = "exec ${bin.thunar}";
+        "${mod}+e"              = "exec ${bin.thunar}";
 
         # screen shot
         "${mod}+c"              = "exec ${bin.flameshot} gui";
@@ -97,9 +101,11 @@ in
         "XF86HomePage"          = "exec ${bin.firefox}";
 
         # d-menu
-        "${mod}+d"              = "${exec_cmd} \"rofi -modi window,drun,run,calc,emoji " +
-        "-show run -sidebar-mode -show-icons -lines 7\"";
+        "${mod}+d"              = "${exec_cmd} \"${d_menu}\"";
+        # netwrok menu
         "${mod}+n"              = "exec ${bin.nm_dmenu}";
+        # power menu
+        "${mod}+Shift+e"        = "exec ${power_menu}";
 
         #sound
         "XF86AudioRaiseVolume"  = "exec ${bin.amixer} -q sset Master 5%+ unmute";
@@ -148,7 +154,7 @@ in
             text = "#ffffff";
           };
         };
-        statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${i3bar_file}";
+        statusCommand = "${bin.i3status_rust} ${i3bar_file}";
         position = "bottom";
       }];
 
@@ -165,7 +171,7 @@ in
                                { class = "Mailspring"; } 
                                { class = "Mattermost"; } 
                               ];
-        ${workspace.music}  = [{ class = "Spotify"; }];
+        ${workspace.music}  = [{ class = "spotify"; }];
       };
 
       startup = [
