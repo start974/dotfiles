@@ -45,7 +45,6 @@ in
     pandoc
     taskwarrior-tui
     tig
-    trash-cli
     unzip
     zip
 

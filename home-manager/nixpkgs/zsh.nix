@@ -1,9 +1,18 @@
 { pkgs, lib, ... } :
 let
-  clip = "xsel --output --clipboard";
-  btm = "${pkgs.bottom}/bin/btm";
-  dl_dir = "$HOME/Downloads";
   exclude_dir = ".git,.gitlab,.idea,.vscode";
+  bin = {
+    bat       = "${pkgs.bat}/bin/bat";
+    bottom    = "${pkgs.bottom}/bin/btm";
+    dua       = "${pkgs.dua}/bin/dua";
+    delta     = "${pkgs.delta}/bin/delta";
+    trash-put = "${pkgs.trash-cli}/bin/trash-put";
+    fd        = "${pkgs.fd}/bin/fd";
+    xsel      = "${pkgs.xsel}/bin/xsel";
+    rg        = "${pkgs.ripgrep}/bin/rg";
+    eva       = "${pkgs.eva}/bin/eva";
+  };
+  clip = "xsel --output --clipboard";
 in
 {
   programs.zsh = {
@@ -65,24 +74,30 @@ in
       }
     ];
     dirHashes = {
-      "dl" = "${dl_dir}";
-      "db" = "$HOME/Dropbox";
+      "dl"  = "$HOME/Downloads";
+      "db"  = "$HOME/Dropbox";
       "dot" = "$HOME/dotfiles";
     };
     shellAliases = {
-      df = "df -h";
+      # builtin replacement
+      cat   = "${bin.bat}";
+      rm    = "${bin.trash-put}";
+      top   = "${bin.bottom}";
+      diff  = "${bin.delta}";
+      du    = "${bin.dua} i";
+      find  = "${bin.fd}";
+      grep  = "${bin.rg}";
+      calc  = "${bin.eva}";
+
       config = "cd ~/dotfiles/home-manager/nixpkgs/ \\
                 && vim .                            \\
                 && home-manager switch";
       frmac = "setxkbmap fr -variant mac";
       make = "make -j`nproc`";
-      rm = "trash-put";
-      cat = "bat";
       wgetclip = "wget $(${clip})";
       gcloneclip = "git clone $(${clip})";
-      top = "${btm}";
       cdtmp = "cd $(mktemp -d)";
-      rgrep = "grep -Rin --color=auto --exclude-dir={${exclude_dir}}";
+      rgrep = "grep --iglob={${exclude_dir}}";
       pathln = "echo $PATH | tr ':' '\n'";
 
       # sufflix alias

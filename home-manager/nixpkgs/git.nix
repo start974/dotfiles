@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   programs.git = {
+    # use delta to diff
+    delta.enable = true;
     userName = "jeremy.damour";
     userEmail = "jeremy.damour2@gmail.com";
     aliases = {
@@ -27,7 +29,6 @@
         commit.verbose = true;
         remote.pushdefault = "origin";
         init.defaultBranch = "main";
-        merge.tool = "vimdiff";
       };
     };
   }
