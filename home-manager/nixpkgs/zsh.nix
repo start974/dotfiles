@@ -4,15 +4,16 @@ let
   bin = {
     bat       = "${pkgs.bat}/bin/bat";
     bottom    = "${pkgs.bottom}/bin/btm";
-    dua       = "${pkgs.dua}/bin/dua";
     delta     = "${pkgs.delta}/bin/delta";
-    trash-put = "${pkgs.trash-cli}/bin/trash-put";
-    fd        = "${pkgs.fd}/bin/fd";
-    xsel      = "${pkgs.xsel}/bin/xsel";
-    rg        = "${pkgs.ripgrep}/bin/rg";
+    dua       = "${pkgs.dua}/bin/dua";
     eva       = "${pkgs.eva}/bin/eva";
+    fd        = "${pkgs.fd}/bin/fd";
+    nvim      = "${pkgs.neovim}/bin/nvim";
+    rg        = "${pkgs.ripgrep}/bin/rg";
+    trash-put = "${pkgs.trash-cli}/bin/trash-put";
+    xsel      = "${pkgs.xsel}/bin/xsel";
   };
-  clip = "xsel --output --clipboard";
+  clip = "${bin.xsel} --output --clipboard";
 in
 {
   programs.zsh = {
@@ -88,9 +89,11 @@ in
       find  = "${bin.fd}";
       grep  = "${bin.rg}";
       calc  = "${bin.eva}";
+      vim   = "${bin.nvim}";
 
+      e     = "${bin.nvim}";
       config = "cd ~/dotfiles/home-manager/nixpkgs/ \\
-                && vim .                            \\
+                && ${bin.nvim} .                    \\
                 && home-manager switch";
       frmac = "setxkbmap fr -variant mac";
       make = "make -j`nproc`";

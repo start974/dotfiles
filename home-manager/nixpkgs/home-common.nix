@@ -10,7 +10,7 @@
     homeDirectory = "/home/${username}";
 
     sessionVariables = {
-      EDITOR = "vim";
+      EDITOR = "nvim";
     };
   };
 
@@ -28,7 +28,7 @@
     ./powerline.nix
     ./redshift.nix
     ./tmux.nix
-    ./vim.nix
+    #./vim.nix
     #./vscode.nix
     #./xresources.nix
     ./zsh.nix

@@ -23,7 +23,7 @@
         "*.swp"
       ];
       extraConfig = {
-        core.editor = "vim";
+        core.editor = "${pkgs.neovim}/bin/nvim";
         push.default = "current";
         pull.rebase = true;
         commit.verbose = true;

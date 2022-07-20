@@ -2,13 +2,21 @@
 
 { pkgs, ... }:
 let
-  mailspring_version = "1.10.3";
-in
-{
-  fonts.fontconfig.enable = true;
-  nixpkgs.config.allowUnfree = true;
+  mailspring_info = rec {
+    version = "1.10.3";
+    url =
+      "https://github.com/Foundry376/Mailspring/releases/download/${version}/mailspring-${version}-amd64.deb";
+      sha256 = "H2KeaRBApveUG6Vz+Z8LWpmNpZ4lwyeX1LK0AKx/bw=";
+    };
+  discord_url = https://discord.com/api/download?platform=linux&format=tar.gz;
+  neovim_url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
 
-  home.packages = with pkgs; [
+in
+  {
+    fonts.fontconfig.enable = true;
+    nixpkgs.config.allowUnfree = true;
+
+    home.packages = with pkgs; [
     # app
     arandr
     barrier
@@ -34,6 +42,14 @@ in
 
     #music
     spotify
+
+    # editor
+    neovim
+    ctags
+    tree-sitter
+    ocamlPackages.merlin # for ocaml
+    perl
+    perl534Packages.CPANMini
 
     # ide
     jetbrains.clion
@@ -61,33 +77,31 @@ in
 
     # language & tool
     coq
-    perl
     #python310
     #autoconf
     #gnumake
-    #gcc
-    # java (see below)
-    #(see below opam)
-    # library
+    gcc
+
+    ocaml
+    python310Packages.pynvim # for merlin with neovim
   ];
 
   #overlays
   nixpkgs.overlays = [
     (self: super: {
       discord = super.discord.overrideAttrs (_: {
-        src = builtins.fetchTarball
-          https://discord.com/api/download?platform=linux&format=tar.gz;
+        src = builtins.fetchTarball discord_url;
       });
+
       mailspring = super.mailspring.overrideAttrs (_: {
-        version = mailspring_version;
-        src = builtins.fetchurl {
-          url =
-            "https://github.com/Foundry376/Mailspring/releases/download/${mailspring_version}/mailspring-${mailspring_version}-amd64.deb";
-          sha256 = "sha256-+H2KeaRBApveUG6Vz+Z8LWpmNpZ4lwyeX1LK0AKx/bw=";
-        };
+        version = mailspring_info.version;
+        src = builtins.fetchurl { url = mailspring_info.url; };
       });
-    }
-    )
+
+      neovim = super.neovim.overrideAttrs (_: {
+        src = builtins.fetchTarball { url = neovim_url; };
+      });
+    })
   ];
 
   # programs
@@ -186,8 +200,8 @@ in
 
     # vim editor
     # (see config in vim.nix)
-    vim.enable = true;
-    #neovim.enable = true;
+    # vim.enable = true;
+    # neovim.enable = true;
 
     # vs code
     # (see config in vscode.nix)

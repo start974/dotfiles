@@ -18,8 +18,14 @@
           set -g @tmux_power_theme 'moon'
         '';
       }
+      {
+        plugin = open;
+      }
     ];
     extraConfig = ''
+      # escape time for vim
+      set-option -sg escape-time 10
+
       # make scrolling with wheels work
       set -g mouse on
 
