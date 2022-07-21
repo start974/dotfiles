@@ -20,6 +20,7 @@
 
     ./git.nix
     ./kitty.nix
+    ./mailspring.nix
     ./nvim.nix
     ./picom.nix
     ./powerline.nix

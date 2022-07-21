@@ -1,15 +1,6 @@
 # this file contains all package to install
 
 { pkgs, ... }:
-let
-  mailspring_info = rec {
-    version = "1.10.3";
-    url =
-      "https://github.com/Foundry376/Mailspring/releases/download/${version}/mailspring-${version}-amd64.deb";
-      sha256 = "H2KeaRBApveUG6Vz+Z8LWpmNpZ4lwyeX1LK0AKx/bw=";
-    };
-  discord_url = https://discord.com/api/download?platform=linux&format=tar.gz;
-in
   {
     fonts.fontconfig.enable = true;
     nixpkgs.config.allowUnfree = true;
@@ -29,11 +20,6 @@ in
     mattermost-desktop
     zoom-us
     dropbox
-
-    # mail
-    mailspring
-    libsecret
-    gnome.gnome-keyring
 
     #music
     spotify
@@ -70,12 +56,9 @@ in
   nixpkgs.overlays = [
     (self: super: {
       discord = super.discord.overrideAttrs (_: {
-        src = builtins.fetchTarball discord_url;
-      });
-
-      mailspring = super.mailspring.overrideAttrs (_: {
-        version = mailspring_info.version;
-        src = builtins.fetchurl { url = mailspring_info.url; };
+        src = builtins.fetchTarball {
+          url =  https://discord.com/api/download?platform=linux&format=tar.gz;
+        };
       });
     })
   ];
