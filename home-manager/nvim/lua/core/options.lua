@@ -1,7 +1,7 @@
 -----------------------------------------------------------
 -- General Neovim settings and configuration
 -----------------------------------------------------------
-local g = vim.g       -- Global variables
+--local g = vim.g       -- Global variables
 local opt = vim.opt   -- Set options (global/buffer/windows-scoped)
 
 -----------------------------------------------------------
@@ -11,6 +11,9 @@ opt.mouse = 'a'                       -- Enable mouse support
 opt.clipboard = 'unnamedplus'         -- Copy/paste to system clipboard
 opt.swapfile = false                  -- Don't use swapfile
 opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
+opt.autoread = true                   -- Reload a file when it is changed from the outside
+opt.autowrite = true                  -- Write the file when we leave the buffer
+opt.hidden = true                     --Hide buffers instead of closing them
 
 -----------------------------------------------------------
 -- Neovim UI
@@ -21,8 +24,6 @@ opt.foldmethod = 'marker'   -- Enable folding (default 'foldmarker')
 opt.colorcolumn = '80'      -- Line lenght marker at 80 columns
 opt.splitright = true       -- Vertical split to the right
 opt.splitbelow = true       -- Horizontal split to the bottom
-opt.ignorecase = true       -- Ignore case letters when search
-opt.smartcase = true        -- Ignore lowercase for the whole pattern
 opt.linebreak = true        -- Wrap on word boundary
 opt.termguicolors = true    -- Enable 24-bit RGB colors
 opt.laststatus=3            -- Set global statusline
@@ -32,6 +33,13 @@ opt.laststatus=3            -- Set global statusline
 --opt.listchars['trail'] = '·'
 --opt.listchars['nbsp'] = '¤'
 --opt.fillchars['vert'] = '│'
+
+-----------------------------------------------------------
+-- Search option
+-----------------------------------------------------------
+opt.ignorecase = true       -- Ignore case letters when search
+opt.smartcase = true        -- Ignore lowercase for the whole pattern
+opt.incsearch = true        -- Move cursor to the matched string
 
 -----------------------------------------------------------
 -- Tabs, indent

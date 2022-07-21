@@ -1,15 +1,21 @@
 { pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    tig
+  ];
+
   programs.git = {
+
     # use delta to diff
     delta.enable = true;
+
     userName = "jeremy.damour";
     userEmail = "jeremy.damour2@gmail.com";
     aliases = {
       stat = "!git --no-pager diff --stat";
 
       # Clean merged branches
-      lg = "log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) 
+      lg = "log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr)
       %C(bold blue)%an%Creset %C(yellow)%d%Creset'";
 
       # Checkout to main fast

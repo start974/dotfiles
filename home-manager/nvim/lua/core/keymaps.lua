@@ -31,7 +31,8 @@ map('n', '<leader>r', ':so %<CR>')
 -----------------------------------------------------------
 
 -- Terminal mappings
-map('n', '<C-t>', ':split | resize 10 | term<CR>', { noremap = true })  -- open
+map('n', '<C-t>', ':Term<CR>', { noremap = true })  -- open
+map('t', '<Esc>', '<C-\\><C-n>')                    -- exit
 
 -- NvimTree
 map('n', '<C-n>', ':NvimTreeToggle<CR>')            -- open/close

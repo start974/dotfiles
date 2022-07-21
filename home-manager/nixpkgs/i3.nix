@@ -36,6 +36,14 @@ in
       (import ./i3_status { inherit i3bar_name name_pc; })
     ];
 
+  home.packages = with pkgs; [
+    alsaUtils
+    betterlockscreen
+    flameshot
+    networkmanager_dmenu
+    rofi-power-menu
+    xfce.thunar
+  ];
   # rofi
   programs.rofi = {
     location = "top";
@@ -134,17 +142,17 @@ in
           background = "#223344";
           statusline = "#dddddd";
           focusedWorkspace = {
-            background = "#0088CC"; 
+            background = "#0088CC";
             border = "#0088CC";
             text = "#ffffff";
           };
           activeWorkspace = {
-            background = "#333333"; 
+            background = "#333333";
             border ="#333333";
             text = "#ffffff";
           };
           inactiveWorkspace = {
-            background = "#333333"; 
+            background = "#333333";
             border = "#333333";
             text = "#888888";
           };
@@ -168,8 +176,8 @@ in
       assigns = {
         ${workspace.web}    = [{ class = "firefox"; instance="Navigator"; }];
         ${workspace.chat}   = [{ class = "discord"; }
-                               { class = "Mailspring"; } 
-                               { class = "Mattermost"; } 
+                               { class = "Mailspring"; }
+                               { class = "Mattermost"; }
                               ];
         ${workspace.music}  = [{ class = "spotify"; }];
       };

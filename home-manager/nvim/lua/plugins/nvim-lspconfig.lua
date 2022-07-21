@@ -105,6 +105,12 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 
 C-C++ --> clangd
 https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#clangd
+
+lua -> sumneko_lua
+https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
+
+ocaml --> ocamllsp
+https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ocamllsp
 --]]
 
 -- Define `root_dir` when needed
@@ -117,7 +123,14 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
-local servers = { 'bashls', 'pyright', 'clangd', 'html' }
+local servers = {
+  'bashls',
+  'clangd',
+  'html',
+  'ocamllsp',
+  'pyright',
+  'sumneko_lua',
+}
 
 -- Call setup
 for _, lsp in ipairs(servers) do

@@ -9,8 +9,6 @@ let
       sha256 = "H2KeaRBApveUG6Vz+Z8LWpmNpZ4lwyeX1LK0AKx/bw=";
     };
   discord_url = https://discord.com/api/download?platform=linux&format=tar.gz;
-  neovim_url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-
 in
   {
     fonts.fontconfig.enable = true;
@@ -20,10 +18,7 @@ in
     # app
     arandr
     barrier
-    networkmanager_dmenu
     playerctl
-    rofi-power-menu
-    xfce.thunar
 
     # font
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
@@ -43,14 +38,6 @@ in
     #music
     spotify
 
-    # editor
-    neovim
-    ctags
-    tree-sitter
-    ocamlPackages.merlin # for ocaml
-    perl
-    perl534Packages.CPANMini
-
     # ide
     jetbrains.clion
     jetbrains.pycharm-community
@@ -60,30 +47,23 @@ in
     ncdu
     pandoc
     taskwarrior-tui
-    tig
     unzip
     zip
 
     # image / video
     imagemagick
     flameshot
-    scrot
     vlc
 
     # document
     evince
     libreoffice
 
-
     # language & tool
     coq
     #python310
     #autoconf
     #gnumake
-    gcc
-
-    ocaml
-    python310Packages.pynvim # for merlin with neovim
   ];
 
   #overlays
@@ -96,10 +76,6 @@ in
       mailspring = super.mailspring.overrideAttrs (_: {
         version = mailspring_info.version;
         src = builtins.fetchurl { url = mailspring_info.url; };
-      });
-
-      neovim = super.neovim.overrideAttrs (_: {
-        src = builtins.fetchTarball { url = neovim_url; };
       });
     })
   ];
@@ -165,7 +141,7 @@ in
     # opam ocaml package manager
     # opam.enable = true;
 
-    # powerline-go 
+    # powerline-go
     powerline-go.enable = true;
 
     # rofi (dmenu alternative)
@@ -207,7 +183,7 @@ in
     # (see config in vscode.nix)
     vscode.enable = true;
 
-    # zsh shell 
+    # zsh shell
     # (see config in zsh.nix)
     zsh.enable = true;
 

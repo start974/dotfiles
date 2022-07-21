@@ -77,9 +77,9 @@ return packer.startup(function(use)
   use { 'rose-pine/neovim', as = 'rose-pine' }
 
   -- LSP
-  use 'neovim/nvim-lspconfig'
+  use "neovim/nvim-lspconfig"
 
-  -- nix 
+  -- nix
   use 'LnL7/vim-nix'
 
   -- ocaml
@@ -87,6 +87,14 @@ return packer.startup(function(use)
 
   -- Coq
   use 'whonore/Coqtail'
+
+  -- Markdown
+  use "ellisonleao/glow.nvim"
+
+  --use {
+    --"iamcco/markdown-preview.nvim",
+    --run = function() vim.fn["mkdp#util#install"]() end,
+  --}
 
   -- Autocomplete
   use {
@@ -99,12 +107,21 @@ return packer.startup(function(use)
       'saadparwaiz1/cmp_luasnip',
     },
   }
-  -- comment 
+  -- comment
   use 'preservim/nerdcommenter'
+
+  -- Testing
+  use 'vim-test/vim-test'
 
   -- Statusline
   use {
     'feline-nvim/feline.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+  }
+
+  -- Dashboard (start screen)
+  use {
+    'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
@@ -115,12 +132,6 @@ return packer.startup(function(use)
     config = function()
       require('gitsigns').setup{}
     end
-  }
-
-  -- Dashboard (start screen)
-  use {
-    'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
   -- Automatically set up your configuration after cloning packer.nvim

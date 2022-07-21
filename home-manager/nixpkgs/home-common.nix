@@ -9,9 +9,6 @@
     username = "jdam";
     homeDirectory = "/home/${username}";
 
-    sessionVariables = {
-      EDITOR = "nvim";
-    };
   };
 
   # allow user unfree

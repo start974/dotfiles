@@ -8,28 +8,38 @@ let
     dua       = "${pkgs.dua}/bin/dua";
     eva       = "${pkgs.eva}/bin/eva";
     fd        = "${pkgs.fd}/bin/fd";
-    nvim      = "${pkgs.neovim}/bin/nvim";
     rg        = "${pkgs.ripgrep}/bin/rg";
     trash-put = "${pkgs.trash-cli}/bin/trash-put";
     xsel      = "${pkgs.xsel}/bin/xsel";
   };
   clip = "${bin.xsel} --output --clipboard";
 in
-{
-  programs.zsh = {
-    enableCompletion = true;
-    enableSyntaxHighlighting = true;
-    enableAutosuggestions = true;
-    enableVteIntegration = true;
-    autocd = true;
-    history = {
-      save = 50000;
-      size = 50000;
-    };
-    initExtra = ''
+  {
+    home.packages = with pkgs; [
+      bat
+      bottom
+      delta
+      dua
+      eva
+      fd
+      ripgrep
+      trash-cli
+      xsel
+    ];
+    programs.zsh = {
+      enableCompletion = true;
+      enableSyntaxHighlighting = true;
+      enableAutosuggestions = true;
+      enableVteIntegration = true;
+      autocd = true;
+      history = {
+        save = 50000;
+        size = 50000;
+      };
+      initExtra = ''
     # lauch tmux
-      [ -z "$TMUX"  ] && { exec tmux new-session && exit;}
-    '';
+        [ -z "$TMUX"  ] && { exec tmux new-session && exit;}
+      '';
     #defaultKeymap = "vicmd";
     localVariables = {
    # # Override highlighter colors
@@ -46,40 +56,40 @@ in
    #   "ZSH_HIGHLIGHT_STYLES[comment]" = "fg=239,bold";
    #   "ZSH_HIGHLIGHT_STYLES[cursor]" = "bg=blue";
    #   "ZSH_HIGHLIGHT_STYLES[line]" = "bold";
+ };
+ oh-my-zsh = {
+   enable = true;
+   theme = "fino"; #"bira";
+   plugins = [
+     "colored-man-pages"
+     "common-aliases"
+     "copyfile"
+     "docker"
+     "extract"
+     "git"
+     "gitignore"
+     "pipenv"
+     "python"
+   ];
+ };
+ plugins = [
+   {
+     name = "zsh-nix-shell";
+     file = "nix-shell.plugin.zsh";
+     src = pkgs.fetchFromGitHub {
+       owner = "chisui";
+       repo = "zsh-nix-shell";
+       rev = "v0.4.0";
+       sha256 = "037wz9fqmx0ngcwl9az55fgkipb745rymznxnssr3rx9irb6apzg";
+     };
+   }
+ ];
+ dirHashes = {
+   "dl"  = "$HOME/Downloads";
+   "db"  = "$HOME/Dropbox";
+   "dot" = "$HOME/dotfiles";
    };
-    oh-my-zsh = {
-      enable = true;
-      theme = "fino"; #"bira";
-      plugins = [
-        "colored-man-pages"
-        "common-aliases"
-        "copyfile"
-        "docker"
-        "extract"
-        "git"
-        "gitignore"
-        "pipenv"
-        "python"
-      ];
-    };
-    plugins = [
-      {
-        name = "zsh-nix-shell";
-        file = "nix-shell.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "chisui";
-          repo = "zsh-nix-shell";
-          rev = "v0.4.0";
-          sha256 = "037wz9fqmx0ngcwl9az55fgkipb745rymznxnssr3rx9irb6apzg";
-        };
-      }
-    ];
-    dirHashes = {
-      "dl"  = "$HOME/Downloads";
-      "db"  = "$HOME/Dropbox";
-      "dot" = "$HOME/dotfiles";
-    };
-    shellAliases = {
+   shellAliases = {
       # builtin replacement
       cat   = "${bin.bat}";
       rm    = "${bin.trash-put}";
@@ -89,12 +99,13 @@ in
       find  = "${bin.fd}";
       grep  = "${bin.rg}";
       calc  = "${bin.eva}";
-      vim   = "${bin.nvim}";
 
-      e     = "${bin.nvim}";
-      config = "cd ~/dotfiles/home-manager/nixpkgs/ \\
-                && ${bin.nvim} .                    \\
-                && home-manager switch";
+      e     = "$EDITOR";
+      config = ''
+        cd ~/dotfiles/home-manager/nixpkgs/ \\
+        && $EDITOR .                      \\
+        && home-manager switch
+      '';
       frmac = "setxkbmap fr -variant mac";
       make = "make -j`nproc`";
       wgetclip = "wget $(${clip})";
