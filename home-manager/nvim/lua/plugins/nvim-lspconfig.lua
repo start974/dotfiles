@@ -144,3 +144,6 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+
+-- merlin
+vim.g.syntastic_ocaml_checkers = [[ 'merlin' ]]

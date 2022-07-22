@@ -101,11 +101,11 @@ in
       calc  = "${bin.eva}";
 
       e     = "$EDITOR";
-      config = ''
+      config = "
         cd ~/dotfiles/home-manager/nixpkgs/ \\
-        && $EDITOR .                      \\
+        && $EDITOR .                        \\
         && home-manager switch
-      '';
+      ";
       frmac = "setxkbmap fr -variant mac";
       make = "make -j`nproc`";
       wgetclip = "wget $(${clip})";

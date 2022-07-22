@@ -84,6 +84,14 @@ return packer.startup(function(use)
 
   -- ocaml
   use 'ocaml/vim-ocaml'
+  use {
+    '$HOME/.nix-profile/share/merlin/vim/',
+    as = 'merlin',
+  }
+  use {
+    '$HOME/.nix-profile/share/ocp-indent/vim/',
+    as = 'ocp-indent',
+  }
 
   -- Coq
   use 'whonore/Coqtail'
