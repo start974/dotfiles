@@ -17,7 +17,7 @@ vim.g.mapleader = ','
 -- Neovim shortcuts
 -----------------------------------------------------------
 -- Clear search highlighting with <leader> and c
-map('n', '<leader>c', ':nohl<CR>')
+map('n', '??', ':nohl<CR>')
 
 -- Toggle auto-indenting for code paste
 map('n', '<F2>', ':set invpaste paste?<CR>')

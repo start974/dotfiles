@@ -15,10 +15,10 @@ end
 nvim_treesitter.setup {
   -- A list of parser names, or "all"
   ensure_installed = {
-    'bash', 
-    'c', 
+    'bash',
+    'c',
     'cpp',
-    'json', 
+    'json',
     'lua',
     'ocaml',
     'python',

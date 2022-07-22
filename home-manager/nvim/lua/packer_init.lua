@@ -1,4 +1,4 @@
-----------------------------------------------------------
+---------------------------------------------------------
 -- Plugin manager configuration file
 -----------------------------------------------------------
 
@@ -109,9 +109,11 @@ return packer.startup(function(use)
     'hrsh7th/nvim-cmp',
     requires = {
       'L3MON4D3/LuaSnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
       'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      'hrsh7th/cmp-path',
+      {"hrsh7th/cmp-nvim-lua", ft = 'lua'},
       'saadparwaiz1/cmp_luasnip',
     },
   }
@@ -141,6 +143,17 @@ return packer.startup(function(use)
       require('gitsigns').setup{}
     end
   }
+
+  -- cheat sheet
+	use {
+		'sudormrfbin/cheatsheet.nvim',
+
+		requires = {
+			{'nvim-telescope/telescope.nvim'},
+			{'nvim-lua/popup.nvim'},
+			{'nvim-lua/plenary.nvim'},
+		}
+	}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
