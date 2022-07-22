@@ -17,6 +17,7 @@ in
     # xsel
     # C language
     clang-tools
+    gcc
 
     #lua
     sumneko-lua-language-server
