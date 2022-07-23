@@ -13,6 +13,8 @@ in
       gnome.gnome-keyring
     ];
 
+    services.gnome-keyring.enable = true;
+
     nixpkgs.overlays = [
       (self: super: {
         mailspring = super.mailspring.overrideAttrs (_: {

@@ -18,8 +18,8 @@
     format = "{alias}: {available} free";
     unit = "GB";
     interval = 2 * 60;
-    warning = 30.0;
-    alert = 10.0;
+    warning = 60.0;
+    alert = 80.0;
   }
   {
     block = "cpu";
@@ -50,7 +50,7 @@
     block = "backlight";
     step_width = 5;
   }
-  { 
+  {
     block = "sound";
     step_width = 5;
   }

@@ -1,6 +1,9 @@
 # this file contains all package to install
 
 { pkgs, ... }:
+let
+  pkgsUnstable = import <unstable> {};
+in
   {
     fonts.fontconfig.enable = true;
     nixpkgs.config.allowUnfree = true;
