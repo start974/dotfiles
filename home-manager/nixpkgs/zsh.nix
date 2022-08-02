@@ -23,6 +23,7 @@ in
       eva
       fd
       ripgrep
+      rsync
       trash-cli
       xsel
     ];
@@ -88,6 +89,7 @@ in
    "dl"  = "$HOME/Downloads";
    "db"  = "$HOME/Dropbox";
    "dot" = "$HOME/dotfiles";
+   "prj" = "$HOME/Project";
    };
    shellAliases = {
       # builtin replacement
@@ -113,7 +115,17 @@ in
       cdtmp = "cd $(mktemp -d)";
       rgrep = "grep --iglob={${exclude_dir}}";
       pathln = "echo $PATH | tr ':' '\n'";
-
+      backup-proj =
+        let
+          src = "$HOME/Project/";
+          user = "jdam";
+          host = "192.168.1.16";
+          dest = "NetBackup/xps13";
+          password-file = /home/jdam/.rsync_pass;
+          rsync_opts = "--r -n -t -o -v --progress -s --password-file=${password-file}";
+          dst = "${user}@${host}::${dest}";
+        in
+        "rsync ${rsync_opts} ${src} ${dst}";
       # sufflix alias
       "-s pdf" = "evince";
       "-s html" = "firefox";

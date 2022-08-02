@@ -39,6 +39,9 @@ in
     unzip
     zip
 
+    # rsync with gui
+    grsync
+
     # image / video
     imagemagick
     flameshot
