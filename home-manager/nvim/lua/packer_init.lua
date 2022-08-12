@@ -144,6 +144,12 @@ return packer.startup(function(use)
     end
   }
 
+  -- git
+  use {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim'
+  }
+
   -- cheat sheet
 	use {
 		'sudormrfbin/cheatsheet.nvim',

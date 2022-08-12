@@ -17,6 +17,7 @@
   imports = [
     ./package.nix
 
+    ./firefox.nix
     ./git.nix
     ./kitty.nix
     ./mailspring.nix
@@ -25,10 +26,11 @@
     ./powerline.nix
     ./redshift.nix
     ./tmux.nix
+    ./zsh.nix
+
     #./vim.nix
     #./vscode.nix
     #./xresources.nix
-    ./zsh.nix
   ];
 
   # enable manual in html

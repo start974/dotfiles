@@ -122,7 +122,7 @@ in
           host = "192.168.1.16";
           dest = "NetBackup/xps13";
           password-file = /home/jdam/.rsync_pass;
-          rsync_opts = "--r -n -t -o -v --progress -s --password-file=${password-file}";
+          rsync_opts = "-r -n -t -o -v --progress -s --password-file=${password-file}";
           dst = "${user}@${host}::${dest}";
         in
         "rsync ${rsync_opts} ${src} ${dst}";

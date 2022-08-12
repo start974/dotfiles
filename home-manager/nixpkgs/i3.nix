@@ -174,12 +174,13 @@ in
       ];
 
       assigns = {
-        ${workspace.web}    = [{ class = "firefox"; instance="Navigator"; }];
+        ${workspace.web}    = [{ class = "firefox-nightly";
+                                 instance="Navigator"; }];
         ${workspace.chat}   = [{ class = "discord"; }
                                { class = "Mailspring"; }
                                { class = "Mattermost"; }
                               ];
-        ${workspace.music}  = [{ class = "spotify"; }];
+        ${workspace.music}  = [{ class = "Spotify"; }];
       };
 
       startup = [

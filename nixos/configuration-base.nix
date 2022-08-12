@@ -128,6 +128,16 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  # optimize nix store
+  nix.settings.auto-optimise-store = true;
+
+  #auto collect garbage
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 20d";
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

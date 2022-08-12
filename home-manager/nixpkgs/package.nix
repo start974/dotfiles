@@ -87,11 +87,12 @@ in
     # direnv
     direnv.enable = true;
 
+    #emacs
+    emacs.enable = true;
+    emacs.extraPackages = epkgs: [ epkgs.magit ];
+
     # light image viewer
     feh.enable = true;
-
-    # firefox browser
-    firefox.enable = true;
 
     # git
     # (see config in "git.nix")
