@@ -14,12 +14,12 @@ in
   home.packages = with pkgs; [
     neovim-pkgs
     tree-sitter
-    # xsel
     # C language
-    clang-tools
     gcc
+    #clang
+    clang-tools
 
-    #lua
+    lua
     sumneko-lua-language-server
 
     # ocaml

@@ -18,7 +18,6 @@ let
   bin = {
     amixer = "${pkgs.alsaUtils}/sbin/amixer";
     betterlockscreen = "${pkgs.betterlockscreen}/bin/betterlockscreen";
-    firefox = "${pkgs.firefox}/bin/firefox";
     flameshot = "${pkgs.flameshot}/bin/flameshot";
     i3status_rust = "${pkgs.i3status-rust}/bin/i3status-rs";
     nm_dmenu ="${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
@@ -105,8 +104,8 @@ in
         "${mod}+c"              = "exec ${bin.flameshot} gui";
 
         # firefox
-        "${mod}+b"              = "exec ${bin.firefox}";
-        "XF86HomePage"          = "exec ${bin.firefox}";
+        "${mod}+b"              = "exec firefox";
+        "XF86HomePage"          = "exec firefox";
 
         # d-menu
         "${mod}+d"              = "${exec_cmd} \"${d_menu}\"";
