@@ -23,8 +23,8 @@ in
     sumneko-lua-language-server
 
     # ocaml
-    #ocamlPackages.ocp-indent
-    #ocamlPackages.merlin
+    ocamlPackages.ocp-indent
+    ocamlPackages.merlin
 
     # bash
     nodePackages.bash-language-server

@@ -115,6 +115,8 @@ in
       cdtmp = "cd $(mktemp -d)";
       rgrep = "grep --iglob={${exclude_dir}}";
       pathln = "echo $PATH | tr ':' '\n'";
+      udm = "udisksctl mount -b";
+      udu = "udisksctl unmount -b";
       backup-proj =
         let
           src = "$HOME/Project/";
@@ -144,7 +146,6 @@ in
     mcfly = {
       enableZshIntegration = true;
       enableLightTheme = false;
-      enableFuzzySearch = true;
     };
 
     opam.enableZshIntegration = true;

@@ -69,7 +69,10 @@ return packer.startup(function(use)
   use 'preservim/tagbar'
 
   -- Treesitter interface
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
 
   -- Color schemes
   use 'tanvirtin/monokai.nvim'
@@ -95,6 +98,9 @@ return packer.startup(function(use)
 
   -- Coq
   use 'whonore/Coqtail'
+
+  -- lustre
+  use 'vim-scripts/lustre-syntax'
 
   -- Markdown
   use "ellisonleao/glow.nvim"
@@ -151,15 +157,15 @@ return packer.startup(function(use)
   }
 
   -- cheat sheet
-	use {
-		'sudormrfbin/cheatsheet.nvim',
+  use {
+    'sudormrfbin/cheatsheet.nvim',
 
-		requires = {
-			{'nvim-telescope/telescope.nvim'},
-			{'nvim-lua/popup.nvim'},
-			{'nvim-lua/plenary.nvim'},
-		}
-	}
+    requires = {
+      {'nvim-telescope/telescope.nvim'},
+      {'nvim-lua/popup.nvim'},
+      {'nvim-lua/plenary.nvim'},
+    }
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
