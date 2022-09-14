@@ -130,6 +130,7 @@ local servers = {
   'ocamllsp',
   'pyright',
   'sumneko_lua',
+  'rnix-lsp'
 }
 
 -- Call setup
